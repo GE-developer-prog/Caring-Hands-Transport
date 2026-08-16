@@ -1,0 +1,1 @@
+import"./animations-DtPzRDIC.js";import"./api-BXEZn-wm.js";import"./forms-CBwlF2yK.js";import"./signature-4KvRmoBX.js";document.addEventListener(`DOMContentLoaded`,function(){var e=document.getElementById(`feedback-form`);e&&window.CHT.bindFormSubmit(e,window.CHT.submitFeedback,`Thanks for your feedback!`)});

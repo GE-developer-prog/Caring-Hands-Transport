@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff/Admin Login | Caring Hands Transport</title>
+  <meta name="description" content="Staff and Admin sign-in for the Caring Hands Transport internal portal." />
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem("cht-theme");
+      var theme = saved || "light";
+      if (theme === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-BypNnk1b.ico" />
+  <link rel="apple-touch-icon" href="/assets/favicon-180-tM7O-atf.png" />
+  <script type="module" crossorigin src="/assets/animations-DtPzRDIC.js"></script>
+  <script type="module" crossorigin src="/assets/api-BXEZn-wm.js"></script>
+  <script type="module" crossorigin src="/assets/forms-CBwlF2yK.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/animations-BiYYMTEg.css">
+</head>
+<body class="font-body">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-red focus:text-white focus:px-4 focus:py-2 focus:rounded-md">
+    Skip to main content
+  </a>
+  <!-- ============ HEADER ============ -->
+  <header class="sticky top-0 z-40 border-b border-line-light dark:border-line-dark bg-paper/90 dark:bg-ink/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/assets/logo-transparent-B5EakvO5.svg" alt="Caring Hands Transport" class="h-10 w-10" />
+        <span class="font-heading text-lg font-bold leading-tight">
+          Caring Hands<br class="hidden sm:block" />
+          <span class="text-red">Transport</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <a href="index.html" class="font-heading text-sm font-medium hover:text-red">Home</a>
+        <a href="about.html" class="font-heading text-sm font-medium hover:text-red">About Us</a>
+        <a href="services.html" class="font-heading text-sm font-medium hover:text-red">Our Services</a>
+        <a href="jobs.html" class="font-heading text-sm font-medium hover:text-red">Jobs</a>
+        <a href="contact.html" class="font-heading text-sm font-medium hover:text-red">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+18886961993" class="hidden items-center gap-2 font-heading text-sm font-semibold sm:flex hover:text-red">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          (888) 696-1993
+        </a>
+
+        <button
+          type="button"
+          data-theme-toggle
+          aria-label="Toggle light and dark mode"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-line-light dark:border-line-dark hover:border-red hover:text-red"
+        >
+          <i class="fa-solid fa-moon" data-theme-icon aria-hidden="true"></i>
+        </button>
+
+        <a href="request-transportation.html" class="btn-primary hidden sm:inline-flex">
+          Request a Ride
+        </a>
+
+        <details class="lg:hidden">
+          <summary
+            aria-label="Open menu"
+            class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-line-light dark:border-line-dark"
+          >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </summary>
+          <nav
+            aria-label="Mobile"
+            class="absolute inset-x-0 top-full flex flex-col gap-1 border-b border-line-light bg-paper px-6 py-4 dark:border-line-dark dark:bg-ink"
+          >
+            <a href="index.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Home</a>
+            <a href="about.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">About Us</a>
+            <a href="services.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Our Services</a>
+            <a href="jobs.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Jobs</a>
+            <a href="contact.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Contact</a>
+            <a href="request-transportation.html" class="mt-2 rounded px-2 py-2 font-heading text-sm font-semibold text-red">Request a Ride</a>
+            <a href="tel:+18886961993" class="rounded px-2 py-2 font-heading text-sm font-medium">
+              <i class="fa-solid fa-phone mr-2" aria-hidden="true"></i>(888) 696-1993
+            </a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section flex justify-center">
+      <div class="w-full max-w-md rounded-lg border border-line-light p-8 dark:border-line-dark">
+        <div class="text-center">
+          <img src="/assets/logo-transparent-B5EakvO5.svg" alt="Caring Hands Transport" class="animate-cht-pulse mx-auto h-14 w-14 dark:hidden" />
+          <img src="/assets/logo-white-BtwXPFbM.svg" alt="Caring Hands Transport" class="animate-cht-pulse mx-auto hidden h-14 w-14 dark:block" />
+          <h1 class="mt-4 font-heading text-2xl font-bold">Staff/Admin Login</h1>
+          <p class="mt-2 text-sm text-ink/70 dark:text-paper/70">Sign in with your company-provided credentials.</p>
+        </div>
+
+        <form id="staff-login-form" class="mt-8" novalidate>
+          <div class="field-group">
+            <label class="field-label" for="username">Username <span class="required-mark">*</span></label>
+            <input class="field-input" type="text" id="username" name="username" autocomplete="username" required />
+            <p class="field-error"></p>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="password">Password <span class="required-mark">*</span></label>
+            <input class="field-input" type="password" id="password" name="password" autocomplete="current-password" required />
+            <p class="field-error"></p>
+          </div>
+          <button type="submit" class="btn-primary w-full">Sign In</button>
+        </form>
+
+        <p class="mt-6 text-center text-xs text-ink/50 dark:text-paper/50">
+          Staff and Admin accounts are created and managed by Caring Hands Transport &mdash; this
+          portal does not support self-service account creation.
+        </p>
+      </div>
+    </section>
+  </main>
+  <!-- ============ FOOTER ============ -->
+  <footer class="surface-elevated">
+    <div class="section grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="/src/assets/logo/favicon-180.png alt="Caring Hands Transport" class="h-9 w-9" />
+          <span class="font-heading text-base font-bold">Caring Hands Transport</span>
+        </a>
+        <p class="mt-4 text-sm text-ink/60 dark:text-paper/60">
+          Non-medical and non-emergent medical transportation for the Denver Metro Area.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">Company</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="about.html" class="text-ink/80 dark:text-paper/80 hover:text-red">About Us</a></li>
+          <li><a href="services.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Our Services</a></li>
+          <li><a href="jobs.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Jobs</a></li>
+          <li><a href="employee-referral.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Employee Referral Program</a></li>
+          <li><a href="contact.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">For Employees</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="employees-only.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Employees Only</a></li>
+          <li><a href="vehicle-maintenance.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Vehicle Maintenance</a></li>
+          <li><a href="staff-login.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Staff/Admin Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">Contact</h3>
+        <ul class="mt-4 space-y-2 text-sm text-ink/80 dark:text-paper/80">
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-phone text-red" aria-hidden="true"></i>
+            <a href="tel:+18886961993" class="hover:text-red">(888) 696-1993</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-clock text-red" aria-hidden="true"></i>
+            Mon&ndash;Fri, 5:30 AM&ndash;5:30 PM
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-red" aria-hidden="true"></i>
+            Denver Metro Area, Colorado
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-ink/10 dark:border-paper/10">
+      <div class="mx-auto max-w-6xl px-6 py-6 text-center text-xs text-ink/50 dark:text-paper/50">
+        All Rights Reserved. Caring Hands Transport <span class="copyright-year"></span>.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- <script type="module" src="/src/assets/js/auth.js"></script> -->
+  <!-- <script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+      var form = document.getElementById("staff-login-form");
+      if (!form) return;
+      form.addEventListener("submit", async function (evt) {
+        evt.preventDefault();
+        if (!window.CHT.validateForm(form)) {
+          window.CHT.showToast("Please enter your username and password.", "error");
+          return;
+        }
+        var username = form.username.value;
+        var password = form.password.value;
+        try {
+          var result = await window.CHT.staffLogin(username, password);
+          window.CHT.setStaffToken(result.token);
+          window.CHT.showToast("Signed in.", "success");
+          location.href = "staff-portal.html";
+        } catch (err) {
+          // api.js already shows an error toast
+        }
+      });
+    });
+  </script> -->
+</body>
+</html>

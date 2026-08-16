@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employment Application | Caring Hands Transport</title>
+  <meta name="description" content="Apply for a position at Caring Hands Transport in the Denver Metro Area." />
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem("cht-theme");
+      var theme = saved || "light";
+      if (theme === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <link rel="icon" type="image/x-icon" href="/src/assets/logo/favicon.ico" />
+  <link rel="apple-touch-icon" href="/src/assets/logo/favicon-180.png" />
+  <link rel="stylesheet" href="/src/assets/css/main.css" />
+</head>
+<body class="font-body">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-red focus:text-white focus:px-4 focus:py-2 focus:rounded-md">
+    Skip to main content
+  </a>
+  <!-- ============ HEADER ============ -->
+  <header class="sticky top-0 z-40 border-b border-line-light dark:border-line-dark bg-paper/90 dark:bg-ink/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/src/assets/logo/logo-transparent.svg" alt="Caring Hands Transport" class="h-10 w-10" />
+        <span class="font-heading text-lg font-bold leading-tight">
+          Caring Hands<br class="hidden sm:block" />
+          <span class="text-red">Transport</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <a href="/" class="font-heading text-sm font-medium hover:text-red">Home</a>
+        <a href="/about" class="font-heading text-sm font-medium hover:text-red">About Us</a>
+        <a href="/services" class="font-heading text-sm font-medium hover:text-red">Our Services</a>
+        <a href="/jobs" class="font-heading text-sm font-medium hover:text-red">Jobs</a>
+        <a href="/contact" class="font-heading text-sm font-medium hover:text-red">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+18886961993" class="hidden items-center gap-2 font-heading text-sm font-semibold sm:flex hover:text-red">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          (888) 696-1993
+        </a>
+
+        <button
+          type="button"
+          data-theme-toggle
+          aria-label="Toggle light and dark mode"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-line-light dark:border-line-dark hover:border-red hover:text-red"
+        >
+          <i class="fa-solid fa-moon" data-theme-icon aria-hidden="true"></i>
+        </button>
+
+        <a href="/request-transportation" class="btn-primary hidden sm:inline-flex">
+          Request a Ride
+        </a>
+
+        <details class="lg:hidden">
+          <summary
+            aria-label="Open menu"
+            class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-line-light dark:border-line-dark"
+          >
+            <i class="fa-solid fa-bars" data-menu-icon aria-hidden="true"></i>
+          </summary>
+          <nav
+            aria-label="Mobile"
+            class="absolute inset-x-0 top-full flex flex-col gap-1 border-b border-line-light bg-paper px-6 py-4 dark:border-line-dark dark:bg-ink"
+          >
+            <a href="/" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Home</a>
+            <a href="/about" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">About Us</a>
+            <a href="/services" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Our Services</a>
+            <a href="/jobs" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Jobs</a>
+            <a href="/contact" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Contact</a>
+            <a href="/request-transportation" class="mt-2 rounded px-2 py-2 font-heading text-sm font-semibold text-red">Request a Ride</a>
+            <a href="tel:+18886961993" class="rounded px-2 py-2 font-heading text-sm font-medium">
+              <i class="fa-solid fa-phone mr-2" aria-hidden="true"></i>(888) 696-1993
+            </a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+<main id="main">
+    <section class="surface-elevated">
+      <div class="section">
+        <p class="eyebrow">Public Form &middot; No Login Required</p>
+        <h1 class="mt-4 max-w-2xl font-heading text-4xl font-extrabold leading-tight sm:text-5xl">Employment Application</h1>
+        <p class="mt-5 max-w-xl text-base text-ink/80 dark:text-paper/80 sm:text-lg">Apply to join the Caring Hands Transport team.</p>
+      </div>
+    </section>
+    
+    <section class="section max-w-3xl">
+      <form id="application-form" novalidate>
+
+        <div class="field-fieldset">
+          <p class="field-legend">Applicant Name</p>
+          <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-4">
+            <div class="field-group"><label class="field-label" for="app-title">Title</label><input class="field-input" type="text" id="app-title" name="title"     /><p class="field-error"></p></div>
+            <div class="field-group"><label class="field-label" for="app-first">First Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="app-first" name="firstName" required    /><p class="field-error"></p></div>
+            <div class="field-group"><label class="field-label" for="app-last">Last Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="app-last" name="lastName" required    /><p class="field-error"></p></div>
+            <div class="field-group"><label class="field-label" for="app-suffix">Suffix</label><input class="field-input" type="text" id="app-suffix" name="suffix"     /><p class="field-error"></p></div>
+          </div>
+        </div>
+
+        
+      <div class="field-fieldset">
+        <p class="field-legend">Address</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="applicant-street">Street Address <span class="required-mark">*</span></label><input class="field-input" type="text" id="applicant-street" name="applicantStreet" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="applicant-line2">Address Line 2</label><input class="field-input" type="text" id="applicant-line2" name="applicantLine2"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="applicant-city">City <span class="required-mark">*</span></label><input class="field-input" type="text" id="applicant-city" name="applicantCity" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="applicant-state">State <span class="required-mark">*</span></label><select class="field-select" id="applicant-state" name="applicantState" required><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="applicant-zip">Postal/Zip Code <span class="required-mark">*</span></label><input class="field-input" type="text" id="applicant-zip" name="applicantZip" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="applicant-country">Country <span class="required-mark">*</span></label><select class="field-select" id="applicant-country" name="applicantCountry" required><option value="United States" selected>United States</option><option value="Canada">Canada</option><option value="Mexico">Mexico</option><option value="Other">Other</option></select><p class="field-error"></p></div>
+        </div>
+      </div>
+    
+
+        <div class="field-fieldset">
+          <p class="field-legend">Contact</p>
+          <div class="field-group"><label class="field-label" for="app-phone">Phone <span class="required-mark">*</span></label><input class="field-input" type="tel" id="app-phone" name="phone" required placeholder="(555) 555-5555" /><p class="field-error"></p></div>
+          <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div class="field-group"><label class="field-label" for="app-email">Email <span class="required-mark">*</span></label><input class="field-input" type="email" id="app-email" name="email" required    /><p class="field-error"></p></div>
+            <div class="field-group"><label class="field-label" for="app-email-confirm">Confirm Email Address <span class="required-mark">*</span></label><input class="field-input" type="email" id="app-email-confirm" name="confirmEmail" required  data-confirm-of="email"  /><p class="field-error"></p></div>
+          </div>
+        </div>
+
+        <div class="field-fieldset">
+          <p class="field-legend">Employment Information</p>
+          <div class="field-group"><label class="field-label" for="date-available">Date Available <span class="required-mark">*</span></label><input class="field-input" type="date" id="date-available" name="dateAvailable" required /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="desired-salary">Desired Salary <span class="required-mark">*</span></label><input class="field-input" type="text" id="desired-salary" name="desiredSalary" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="position">Position Applying For <span class="required-mark">*</span></label><select class="field-select" id="position" name="positionApplyingFor" required><option value="">Select an option</option><option value="admin_mgmt">Administration: management</option><option value="admin_nonmgmt">Administration: non-management</option><option value="driving">Driving: NMT/NEMT</option><option value="dsp">DSP: Direct Care Professional</option><option value="other">Other</option></select><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="job-classification">Job Classification <span class="required-mark">*</span></label><select class="field-select" id="job-classification" name="jobClassification" required><option value="">Select an option</option><option value="part_time">Part Time</option><option value="full_time">Full Time</option><option value="any">Any</option></select><p class="field-error"></p></div>
+        </div>
+
+        <div class="field-fieldset">
+          <p class="field-legend">Eligibility</p>
+          <div class="field-group"><fieldset><legend class="field-label">Are you at least 18 years old? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="age18" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="age18" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><fieldset><legend class="field-label">For drivers only: Are you at least 25 years old?</legend><div><label class="field-radio-row"><input type="radio" name="age25Driver" value="yes"  class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="age25Driver" value="no"  class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><fieldset><legend class="field-label">If hired, are you able to submit proof that you are legally eligible for employment in the United States? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="workEligible" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="workEligible" value="no" required class="mt-1" />No, please explain</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><label class="field-label" for="work-eligible-explain">Explanation</label><textarea class="field-textarea" id="work-eligible-explain" name="workEligibleExplain" ></textarea><p class="field-error"></p></div>
+          <div class="field-group"><fieldset><legend class="field-label">Are you able to pass a CBI/FBI background check? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="backgroundCheck" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="backgroundCheck" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><fieldset><legend class="field-label">Are you willing to complete a 10-panel drug test? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="drugTest" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="drugTest" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><fieldset><legend class="field-label">Are you willing to complete a DOT Physical? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="dotPhysical" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="dotPhysical" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><fieldset><legend class="field-label">Are you willing to work any shift, including nights and weekends? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="anyShift" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="anyShift" value="no" required class="mt-1" />If no, state limitations</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><label class="field-label" for="shift-limitations">Limitations</label><textarea class="field-textarea" id="shift-limitations" name="shiftLimitations" ></textarea><p class="field-error"></p></div>
+          <div class="field-group"><fieldset><legend class="field-label">If applicable, are you available to work overtime? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="overtime" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="overtime" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><fieldset><legend class="field-label">Are you able to perform the essential functions of the job position you seek with or without reasonable accommodation? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="essentialFunctions" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="essentialFunctions" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><label class="field-label" for="accommodation">What reasonable accommodation, if any, would you request? <span class="required-mark">*</span></label><textarea class="field-textarea" id="accommodation" name="accommodationRequested" required></textarea><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="commute">How will you get to work? <span class="required-mark">*</span></label><select class="field-select" id="commute" name="commuteMethod" required><option value="">Select an option</option><option value="personal_vehicle">Personal vehicle</option><option value="rideshare_taxi">Rideshare/Taxi</option><option value="public_transport">Public transport</option><option value="walk_bike">Walk/Bike</option><option value="not_sure">Not Sure</option><option value="other">Other</option></select><p class="field-error"></p></div>
+          <div class="field-group"><fieldset><legend class="field-label">Have you ever worked for this company? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="workedHereBefore" value="no" required class="mt-1" />No</label><label class="field-radio-row"><input type="radio" name="workedHereBefore" value="yes" required class="mt-1" />Yes</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><label class="field-label" for="worked-here-when">If yes, when?</label><input class="field-input" type="text" id="worked-here-when" name="workedHereWhen"     /><p class="field-error"></p></div>
+          <div class="field-group"><fieldset><legend class="field-label">Have you ever applied for a job at this company? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="appliedHereBefore" value="no" required class="mt-1" />No</label><label class="field-radio-row"><input type="radio" name="appliedHereBefore" value="yes" required class="mt-1" />Yes</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><label class="field-label" for="applied-here-when">If yes, when?</label><input class="field-input" type="text" id="applied-here-when" name="appliedHereWhen"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="friends-relatives">Do you have any friends or relatives who work here?</label><input class="field-input" type="text" id="friends-relatives" name="friendsRelatives"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="heard-about">How did you hear about this job? <span class="required-mark">*</span></label><select class="field-select" id="heard-about" name="howDidYouHear" required><option value="">Select an option</option><option value="saw_vehicle">Saw one of our vehicles</option><option value="saw_ad">Saw an ad online</option><option value="friend_family">Friend/Family member</option><option value="other">Other; if an employee referral, enter code below</option></select><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="referral-code">Employee Referral Code (if applicable)</label><input class="field-input" type="text" id="referral-code" name="referralCode"     /><p class="field-error"></p></div>
+        </div>
+
+        <div class="field-fieldset">
+          <p class="field-legend">Education</p>
+          <div class="field-group"><label class="field-label" for="education-level">Highest Level of Education <span class="required-mark">*</span></label><select class="field-select" id="education-level" name="highestEducation" required><option value="">Select an option</option><option value="hs_ged">High School Diploma/GED</option><option value="post_secondary">Post Secondary Completion</option><option value="post_grad">Post Graduate Completion</option><option value="other">Other</option></select><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="school-name">School Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="school-name" name="schoolName" required    /><p class="field-error"></p></div>
+        </div>
+
+        <div class="field-fieldset">
+          <p class="field-legend">References</p>
+          <div class="field-group"><label class="field-label" for="references">Please list at least two professional references <span class="required-mark">*</span></label><p class="field-hint">Include full name, relationship, company (if applicable), phone number, and mailing address and/or email address for each.</p><textarea class="field-textarea" id="references" name="references" required data-min-words="10" data-max-words="500" data-word-counter="references-counter"></textarea><p id="references-counter" class="field-hint mt-1"></p><p class="field-error"></p></div>
+        </div>
+
+        <div class="field-fieldset">
+          <p class="field-legend">Driving History</p>
+          <div class="field-group"><fieldset><legend class="field-label">Have you received more than 4 points in the past 12 months and/or more than 6 points in the past 3 years, and/or had your license suspended or revoked in the previous 5 years? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="pointsHistory" value="no" required class="mt-1" />No</label><label class="field-radio-row"><input type="radio" name="pointsHistory" value="yes" required class="mt-1" />Yes</label></div><p class="field-error"></p></fieldset></div>
+
+          <p class="mt-6 font-heading text-sm font-semibold">Driving Record &mdash; Past Three Years</p>
+          <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div class="field-group"><label class="field-label" for="at-fault-accidents">At-Fault Accidents <span class="required-mark">*</span></label><select class="field-select" id="at-fault-accidents" name="atFaultAccidents" required><option value="">Select an option</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3+">3 or more</option></select><p class="field-error"></p></div>
+            <div class="field-group"><label class="field-label" for="non-at-fault-accidents">Non-At-Fault Accidents <span class="required-mark">*</span></label><select class="field-select" id="non-at-fault-accidents" name="nonAtFaultAccidents" required><option value="">Select an option</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3+">3 or more</option></select><p class="field-error"></p></div>
+            <div class="field-group"><label class="field-label" for="traffic-convictions-count">Traffic Convictions Other Than Parking <span class="required-mark">*</span></label><select class="field-select" id="traffic-convictions-count" name="trafficConvictionsCount" required><option value="">Select an option</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3+">3 or more</option></select><p class="field-error"></p></div>
+          </div>
+
+          <div class="field-group"><label class="field-label" for="at-fault-record">At-Fault Accident Record</label><p class="field-hint">Dates, nature of accident, fatalities, injuries. Attach an additional sheet if necessary.</p><textarea class="field-textarea" id="at-fault-record" name="atFaultAccidentRecord" ></textarea><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="non-at-fault-record">Non-At-Fault Accident Record</label><p class="field-hint">Dates, nature of accident, fatalities, injuries. Attach an additional sheet if necessary.</p><textarea class="field-textarea" id="non-at-fault-record" name="nonAtFaultAccidentRecord" ></textarea><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="traffic-convictions-list">Traffic Convictions (other than parking)</label><p class="field-hint">Location, date, charge, and penalty for each, past three years.</p><textarea class="field-textarea" id="traffic-convictions-list" name="trafficConvictionsList" ></textarea><p class="field-error"></p></div>
+
+          <div class="field-group"><fieldset><legend class="field-label">Have you ever been denied a license, permit or privilege to operate a motor vehicle? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="licenseDenied" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="licenseDenied" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><label class="field-label" for="license-denied-explain">Please explain</label><textarea class="field-textarea" id="license-denied-explain" name="licenseDeniedExplain" ></textarea><p class="field-error"></p></div>
+          <div class="field-group"><fieldset><legend class="field-label">Has any license, permit or privilege ever been suspended, revoked or denied? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="licenseSuspended" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="licenseSuspended" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><label class="field-label" for="license-suspended-explain">Please explain</label><textarea class="field-textarea" id="license-suspended-explain" name="licenseSuspendedExplain" ></textarea><p class="field-error"></p></div>
+
+          <div class="field-group"><label class="field-label" for="mvv-count">Number of motor vehicle violations in the last 12 months <span class="required-mark">*</span></label><select class="field-select" id="mvv-count" name="motorVehicleViolations" required><option value="">Select an option</option><option value="0">0</option><option value="1">1</option><option value="2-3">2–3</option><option value="4-5">4–5</option><option value="5-6">5–6</option><option value="7+">7 or more</option></select><p class="field-error"></p></div>
+
+          <div class="field-group"><label class="field-label" for="traffic-cert-list">Certification of Traffic Violations</label><p class="field-hint">I certify the following is a true and complete list of traffic violations (other than parking) for which I have been convicted or forfeited bond or collateral during the past 12 months. Include date of offense, location, type of vehicle operated, and conviction — or state that you have none to report.</p><textarea class="field-textarea" id="traffic-cert-list" name="trafficCertificationList" ></textarea><p class="field-error"></p></div>
+          <div class="field-group"><fieldset><legend class="field-label">I certify the above is true and complete. <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="trafficCertTrue" value="true" required class="mt-1" />True</label><label class="field-radio-row"><input type="radio" name="trafficCertTrue" value="false" required class="mt-1" />False</label></div><p class="field-error"></p></fieldset></div>
+        </div>
+
+        
+      <div class="field-fieldset">
+        <p class="field-legend">Previous Employer 1</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="emp1-company">Company Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp1-company" name="emp1Company" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-phone">Phone <span class="required-mark">*</span></label><input class="field-input" type="tel" id="emp1-phone" name="emp1Phone" required placeholder="(555) 555-5555" /><p class="field-error"></p></div>
+        </div>
+        
+      <div class="field-fieldset">
+        <p class="field-legend">Address</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="emp1-street">Street Address <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp1-street" name="emp1Street" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-line2">Address Line 2</label><input class="field-input" type="text" id="emp1-line2" name="emp1Line2"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-city">City <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp1-city" name="emp1City" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-state">State <span class="required-mark">*</span></label><select class="field-select" id="emp1-state" name="emp1State" required><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-zip">Postal/Zip Code <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp1-zip" name="emp1Zip" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-country">Country <span class="required-mark">*</span></label><select class="field-select" id="emp1-country" name="emp1Country" required><option value="United States" selected>United States</option><option value="Canada">Canada</option><option value="Mexico">Mexico</option><option value="Other">Other</option></select><p class="field-error"></p></div>
+        </div>
+      </div>
+    
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="emp1-supervisor">Supervisor <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp1-supervisor" name="emp1Supervisor" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-title">Job Title <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp1-title" name="emp1JobTitle" required    /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-start-salary">Starting Salary</label><input class="field-input" type="text" id="emp1-start-salary" name="emp1StartingSalary"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-end-salary">Ending Salary</label><input class="field-input" type="text" id="emp1-end-salary" name="emp1EndingSalary"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-start-date">Start Date <span class="required-mark">*</span></label><input class="field-input" type="date" id="emp1-start-date" name="emp1StartDate" required /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp1-end-date">End Date <span class="required-mark">*</span></label><input class="field-input" type="date" id="emp1-end-date" name="emp1EndDate" required /><p class="field-error"></p></div>
+        </div>
+        <div class="field-group"><label class="field-label" for="emp1-responsibilities">Responsibilities <span class="required-mark">*</span></label><textarea class="field-textarea" id="emp1-responsibilities" name="emp1Responsibilities" required data-max-words="500" data-word-counter="emp1-responsibilities-counter"></textarea><p id="emp1-responsibilities-counter" class="field-hint mt-1"></p><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="emp1-reason-leaving">Reason for Leaving <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp1-reason-leaving" name="emp1ReasonForLeaving" required    /><p class="field-error"></p></div>
+        <div class="field-group"><fieldset><legend class="field-label">May we contact your previous supervisor for a reference? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="emp1ContactOk" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="emp1ContactOk" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+      </div>
+    
+        
+      <div class="field-fieldset">
+        <p class="field-legend">Previous Employer 2 (optional)</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="emp2-company">Company Name</label><input class="field-input" type="text" id="emp2-company" name="emp2Company"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-phone">Phone</label><input class="field-input" type="tel" id="emp2-phone" name="emp2Phone"  placeholder="(555) 555-5555" /><p class="field-error"></p></div>
+        </div>
+        
+      <div class="field-fieldset">
+        <p class="field-legend">Address</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="emp2-street">Street Address</label><input class="field-input" type="text" id="emp2-street" name="emp2Street"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-line2">Address Line 2</label><input class="field-input" type="text" id="emp2-line2" name="emp2Line2"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-city">City</label><input class="field-input" type="text" id="emp2-city" name="emp2City"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-state">State</label><select class="field-select" id="emp2-state" name="emp2State" ><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-zip">Postal/Zip Code</label><input class="field-input" type="text" id="emp2-zip" name="emp2Zip"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-country">Country</label><select class="field-select" id="emp2-country" name="emp2Country" ><option value="United States" selected>United States</option><option value="Canada">Canada</option><option value="Mexico">Mexico</option><option value="Other">Other</option></select><p class="field-error"></p></div>
+        </div>
+      </div>
+    
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="emp2-supervisor">Supervisor</label><input class="field-input" type="text" id="emp2-supervisor" name="emp2Supervisor"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-title">Job Title</label><input class="field-input" type="text" id="emp2-title" name="emp2JobTitle"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-start-salary">Starting Salary</label><input class="field-input" type="text" id="emp2-start-salary" name="emp2StartingSalary"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-end-salary">Ending Salary</label><input class="field-input" type="text" id="emp2-end-salary" name="emp2EndingSalary"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-start-date">Start Date</label><input class="field-input" type="date" id="emp2-start-date" name="emp2StartDate"  /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp2-end-date">End Date</label><input class="field-input" type="date" id="emp2-end-date" name="emp2EndDate"  /><p class="field-error"></p></div>
+        </div>
+        <div class="field-group"><label class="field-label" for="emp2-responsibilities">Responsibilities</label><textarea class="field-textarea" id="emp2-responsibilities" name="emp2Responsibilities"  data-max-words="500" data-word-counter="emp2-responsibilities-counter"></textarea><p id="emp2-responsibilities-counter" class="field-hint mt-1"></p><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="emp2-reason-leaving">Reason for Leaving</label><input class="field-input" type="text" id="emp2-reason-leaving" name="emp2ReasonForLeaving"     /><p class="field-error"></p></div>
+        <div class="field-group"><fieldset><legend class="field-label">May we contact your previous supervisor for a reference?</legend><div><label class="field-radio-row"><input type="radio" name="emp2ContactOk" value="yes"  class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="emp2ContactOk" value="no"  class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+      </div>
+    
+        
+      <div class="field-fieldset">
+        <p class="field-legend">Previous Employer 3 (optional)</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="emp3-company">Company Name</label><input class="field-input" type="text" id="emp3-company" name="emp3Company"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-phone">Phone</label><input class="field-input" type="tel" id="emp3-phone" name="emp3Phone"  placeholder="(555) 555-5555" /><p class="field-error"></p></div>
+        </div>
+        
+      <div class="field-fieldset">
+        <p class="field-legend">Address</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="emp3-street">Street Address</label><input class="field-input" type="text" id="emp3-street" name="emp3Street"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-line2">Address Line 2</label><input class="field-input" type="text" id="emp3-line2" name="emp3Line2"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-city">City</label><input class="field-input" type="text" id="emp3-city" name="emp3City"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-state">State</label><select class="field-select" id="emp3-state" name="emp3State" ><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-zip">Postal/Zip Code</label><input class="field-input" type="text" id="emp3-zip" name="emp3Zip"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-country">Country</label><select class="field-select" id="emp3-country" name="emp3Country" ><option value="United States" selected>United States</option><option value="Canada">Canada</option><option value="Mexico">Mexico</option><option value="Other">Other</option></select><p class="field-error"></p></div>
+        </div>
+      </div>
+    
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="emp3-supervisor">Supervisor</label><input class="field-input" type="text" id="emp3-supervisor" name="emp3Supervisor"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-title">Job Title</label><input class="field-input" type="text" id="emp3-title" name="emp3JobTitle"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-start-salary">Starting Salary</label><input class="field-input" type="text" id="emp3-start-salary" name="emp3StartingSalary"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-end-salary">Ending Salary</label><input class="field-input" type="text" id="emp3-end-salary" name="emp3EndingSalary"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-start-date">Start Date</label><input class="field-input" type="date" id="emp3-start-date" name="emp3StartDate"  /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="emp3-end-date">End Date</label><input class="field-input" type="date" id="emp3-end-date" name="emp3EndDate"  /><p class="field-error"></p></div>
+        </div>
+        <div class="field-group"><label class="field-label" for="emp3-responsibilities">Responsibilities</label><textarea class="field-textarea" id="emp3-responsibilities" name="emp3Responsibilities"  data-max-words="500" data-word-counter="emp3-responsibilities-counter"></textarea><p id="emp3-responsibilities-counter" class="field-hint mt-1"></p><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="emp3-reason-leaving">Reason for Leaving</label><input class="field-input" type="text" id="emp3-reason-leaving" name="emp3ReasonForLeaving"     /><p class="field-error"></p></div>
+        <div class="field-group"><fieldset><legend class="field-label">May we contact your previous supervisor for a reference?</legend><div><label class="field-radio-row"><input type="radio" name="emp3ContactOk" value="yes"  class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="emp3ContactOk" value="no"  class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+      </div>
+    
+
+        <div class="field-fieldset">
+          <p class="field-legend">Document Uploads</p>
+          <div class="field-group"><label class="field-label" for="resume">Attach Resume</label><input class="field-input" type="file" id="resume" name="resume"  /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="mvr">Most Recent Motor Vehicle Record (MVR)</label><p class="field-hint">The MVR issue date must not be more than 3 months from today's date.</p><input class="field-input" type="file" id="mvr" name="mvr"  /><p class="field-error"></p></div>
+        </div>
+
+        <div class="field-fieldset">
+          <p class="field-legend">Disclaimer</p>
+          <p class="text-sm text-ink/70 dark:text-paper/70">
+            I certify that my answers are true and complete to the best of my knowledge. If this
+            application leads to employment, I understand that false or misleading information in
+            my application or interview may result in my release.
+          </p>
+        </div>
+
+        
+      <div class="field-fieldset" data-signature>
+        <p class="field-legend">Signature</p>
+        <div class="mt-4 flex gap-2" role="tablist">
+          <button type="button" data-signature-tab="draw" aria-selected="true" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Draw</button>
+          <button type="button" data-signature-tab="type" aria-selected="false" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Type</button>
+        </div>
+
+        <div data-signature-panel="draw" class="mt-4">
+          <canvas data-signature-canvas class="h-40 w-full rounded-md border border-line-light bg-white dark:border-line-dark"></canvas>
+          <button type="button" data-signature-clear class="mt-2 text-xs font-heading font-semibold text-red">Clear</button>
+        </div>
+        <div data-signature-panel="type" class="mt-4 hidden">
+          <input type="text" data-signature-type-input class="field-input font-signature text-2xl italic" placeholder="Type your full name" />
+        </div>
+
+        <input type="hidden" data-signature-value name="applicantSignature" />
+
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="applicant-sig-name">Full Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="applicant-sig-name" name="applicantSignatureFullName" required    /><p class="field-error"></p></div>
+        </div>
+        <div class="field-group"><label class="field-checkbox-row"><input type="checkbox" id="applicant-sig-confirm" name="applicantSignatureConfirm" value="yes" required class="mt-1" />I confirm this is my legal signature.</label><p class="field-error"></p></div>
+      </div>
+    
+
+        <div class="field-fieldset">
+          <p class="field-legend">Driver Applicants Only &mdash; What Happens Next</p>
+          <p class="mt-2 text-sm text-ink/70 dark:text-paper/70">
+            You will need to send us a copy of your MVR (dated no more than 3 months ago) for us
+            to process your application:
+          </p>
+          <ol class="mt-4 list-decimal space-y-4 pl-5 text-sm text-ink/70 dark:text-paper/70">
+            <li>
+              <strong class="text-ink dark:text-paper">MVR</strong> &mdash; To obtain a copy of
+              your 7-year driving record (MVR), visit your local DMV in person or request one
+              online to have a non-certified copy emailed to you via
+              <a href="https://www.colorado.gov/dmv" class="text-red hover:underline">colorado.gov/dmv</a>.
+              The cost is approximately $9.00. Send a copy to
+              <a href="mailto:cs@caringhandstransport.net" class="text-red hover:underline">cs@caringhandstransport.net</a>
+              or fax to 720-485-3752.
+            </li>
+            <li>
+              <strong class="text-ink dark:text-paper">Drug Testing</strong> &mdash; PreCise
+              Monitoring, 10370 Colorado Blvd, Thornton, CO 80229, 303-920-5959. Hours: Monday
+              &ndash; Friday 8:00 AM&ndash;8:00 PM, Saturday 9:00 AM&ndash;1:00 PM. A 10-panel rapid
+              screen drug test is required (tests for amphetamine, benzodiazepines, cocaine,
+              opiates, marijuana, barbiturates, phencyclidine, alcohol, methadone, and
+              propoxyphene). Cost: $30.00.
+            </li>
+            <li>
+              <strong class="text-ink dark:text-paper">Fingerprinting</strong> &mdash; Pre-enroll
+              with IdentoGO at
+              <a href="https://uenroll.identogo.com/" class="text-red hover:underline">uenroll.identogo.com</a>
+              or call (844) 539-5539. Use Service Code <strong class="text-ink dark:text-paper">25YQ2S</strong>
+              and select PreCise Monitoring (10370 Colorado Blvd, Thornton, CO 80229) as your
+              location to complete fingerprinting and drug testing the same day. CBI/FBI
+              fingerprinting fee: $39.50, plus a $10.00 processing fee (total $49.50).
+            </li>
+            <li>
+              <strong class="text-ink dark:text-paper">DOT Physical</strong> &mdash; Driver's
+              Choice, Pine Creek Center, 4755 Paris Street, Suite 150, Denver, CO 80239,
+              720-538-2726. Walk-ins welcome Monday&ndash;Friday 8am&ndash;5pm, or book at
+              <a href="https://www.dot-physical-exam.com" class="text-red hover:underline">dot-physical-exam.com</a>.
+              Cost: $60.00.
+            </li>
+          </ol>
+          <p class="mt-4 text-sm text-ink/70 dark:text-paper/70">
+            Please bring a copy of your photo ID to each appointment. A staff member will assist
+            you with fingerprinting and drug testing steps 2 &amp; 3. Reimbursement is provided
+            after 90 days of employment. More information is available at
+            <a href="https://caringhandstransport.net/driver-applicant/" class="text-red hover:underline">caringhandstransport.net/driver-applicant</a>
+            or by calling <a href="tel:+18886961993" class="text-red hover:underline">(888) 696-1993</a>.
+          </p>
+        </div>
+
+        <button type="submit" class="btn-primary w-full sm:w-auto">Submit Application</button>
+      </form>
+    </section>
+  </main>
+  <!-- ============ FOOTER ============ -->
+  <footer class="surface-elevated">
+    <div class="section grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a href="/" class="flex items-center gap-3">
+          <img src="/src/assets/logo/favicon-180.png" alt="Caring Hands Transport" class="h-9 w-9" />
+          <span class="font-heading text-base font-bold">Caring Hands Transport</span>
+        </a>
+        <p class="mt-4 text-sm text-ink/60 dark:text-paper/60">
+          Non-medical and non-emergent medical transportation for the Denver Metro Area.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">Company</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="/about" class="text-ink/80 dark:text-paper/80 hover:text-red">About Us</a></li>
+          <li><a href="/services" class="text-ink/80 dark:text-paper/80 hover:text-red">Our Services</a></li>
+          <li><a href="/jobs" class="text-ink/80 dark:text-paper/80 hover:text-red">Jobs</a></li>
+          <li><a href="/employee-referral" class="text-ink/80 dark:text-paper/80 hover:text-red">Employee Referral Program</a></li>
+          <li><a href="/contact" class="text-ink/80 dark:text-paper/80 hover:text-red">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">For Employees</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="/employees-only" class="text-ink/80 dark:text-paper/80 hover:text-red">Employees Only</a></li>
+          <li><a href="/vehicle-maintenance" class="text-ink/80 dark:text-paper/80 hover:text-red">Vehicle Maintenance</a></li>
+          <li><a href="/staff-login" class="text-ink/80 dark:text-paper/80 hover:text-red">Staff/Admin Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">Contact</h3>
+        <ul class="mt-4 space-y-2 text-sm text-ink/80 dark:text-paper/80">
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-phone text-red" aria-hidden="true"></i>
+            <a href="tel:+18886961993" class="hover:text-red">(888) 696-1993</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-clock text-red" aria-hidden="true"></i>
+            Mon&ndash;Fri, 5:30 AM&ndash;5:30 PM
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-red" aria-hidden="true"></i>
+            Denver Metro Area, Colorado
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-ink/10 dark:border-paper/10">
+      <div class="mx-auto max-w-6xl px-6 py-6 text-center text-xs text-ink/50 dark:text-paper/50">
+        All Rights Reserved. Caring Hands Transport <span class="copyright-year"></span>.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="module" src="/src/assets/js/theme.js"></script>
+  <script type="module" src="/src/assets/js/menu.js"></script>
+  <script type="module" src="/src/assets/js/toast.js"></script>
+  <script type="module" src="/src/assets/js/api.js"></script>
+  <script type="module" src="/src/assets/js/page-loader.js"></script>
+  <script type="module" src="/src/assets/js/animations.js"></script>
+  <script type="module" src="/src/assets/js/forms.js"></script>
+  <script type="module" src="/src/assets/js/signature.js"></script>
+  <script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+      var f = document.getElementById("application-form");
+      if (f) window.CHT.bindFormSubmit(f, window.CHT.submitEmploymentApplication, "Your application has been submitted!");
+    });
+  </script>
+</body>
+</html>

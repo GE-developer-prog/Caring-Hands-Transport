@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff/Admin Portal | Caring Hands Transport</title>
+  <meta name="description" content="Internal Staff/Admin forms for Caring Hands Transport: Delay Reports, Pre-Trip Inspections, Hazard Reports, Incident Reports, and Time Off Requests." />
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem("cht-theme");
+      var theme = saved || "light";
+      if (theme === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-BypNnk1b.ico" />
+  <link rel="apple-touch-icon" href="/assets/favicon-180-tM7O-atf.png" />
+  <script type="module" crossorigin src="/assets/staffPortal-DSM2whbV.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/animations-DtPzRDIC.js">
+  <link rel="modulepreload" crossorigin href="/assets/api-BXEZn-wm.js">
+  <link rel="modulepreload" crossorigin href="/assets/forms-CBwlF2yK.js">
+  <link rel="modulepreload" crossorigin href="/assets/signature-4KvRmoBX.js">
+  <link rel="stylesheet" crossorigin href="/assets/animations-BiYYMTEg.css">
+</head>
+<body class="font-body">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-red focus:text-white focus:px-4 focus:py-2 focus:rounded-md">
+    Skip to main content
+  </a>
+  <!-- ============ HEADER ============ -->
+  <header class="sticky top-0 z-40 border-b border-line-light dark:border-line-dark bg-paper/90 dark:bg-ink/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/assets/logo-transparent-B5EakvO5.svg" alt="Caring Hands Transport" class="h-10 w-10" />
+        <span class="font-heading text-lg font-bold leading-tight">
+          Caring Hands<br class="hidden sm:block" />
+          <span class="text-red">Transport</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <a href="index.html" class="font-heading text-sm font-medium hover:text-red">Home</a>
+        <a href="about.html" class="font-heading text-sm font-medium hover:text-red">About Us</a>
+        <a href="services.html" class="font-heading text-sm font-medium hover:text-red">Our Services</a>
+        <a href="jobs.html" class="font-heading text-sm font-medium hover:text-red">Jobs</a>
+        <a href="contact.html" class="font-heading text-sm font-medium hover:text-red">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+18886961993" class="hidden items-center gap-2 font-heading text-sm font-semibold sm:flex hover:text-red">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          (888) 696-1993
+        </a>
+
+        <button
+          type="button"
+          data-theme-toggle
+          aria-label="Toggle light and dark mode"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-line-light dark:border-line-dark hover:border-red hover:text-red"
+        >
+          <i class="fa-solid fa-moon" data-theme-icon aria-hidden="true"></i>
+        </button>
+
+        <a href="request-transportation.html" class="btn-primary hidden sm:inline-flex">
+          Request a Ride
+        </a>
+
+        <details class="lg:hidden">
+          <summary
+            aria-label="Open menu"
+            class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-line-light dark:border-line-dark"
+          >
+            <i class="fa-solid fa-bars" data-menu-icon aria-hidden="true"></i>
+          </summary>
+          <nav
+            aria-label="Mobile"
+            class="absolute inset-x-0 top-full flex flex-col gap-1 border-b border-line-light bg-paper px-6 py-4 dark:border-line-dark dark:bg-ink"
+          >
+            <button
+              type="button"
+              data-mobile-close
+              aria-label="Close menu"
+              class="mb-2 ml-auto flex h-9 w-9 items-center justify-center rounded-full border border-line-light dark:border-line-dark"
+            >
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <a href="index.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Home</a>
+            <a href="about.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">About Us</a>
+            <a href="services.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Our Services</a>
+            <a href="jobs.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Jobs</a>
+            <a href="contact.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Contact</a>
+            <a href="request-transportation.html" class="mt-2 rounded px-2 py-2 font-heading text-sm font-semibold text-red">Request a Ride</a>
+            <a href="tel:+18886961993" class="rounded px-2 py-2 font-heading text-sm font-medium">
+              <i class="fa-solid fa-phone mr-2" aria-hidden="true"></i>(888) 696-1993
+            </a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="surface-elevated">
+      <div class="section">
+        <p class="eyebrow">Staff/Admin Portal</p>
+        <h1 class="mt-4 font-heading text-3xl font-extrabold sm:text-4xl">Internal Forms</h1>
+        <p class="mt-3 text-ink/70 dark:text-paper/70">Choose a form below to get started.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Internal forms">
+        <button type="button" data-portal-tab="delay-report" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" data-active="true">Delay Report</button>
+<button type="button" data-portal-tab="pre-trip" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" >Pre-Trip Inspection</button>
+<button type="button" data-portal-tab="hazard-report" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" >Hazard Report Card</button>
+<button type="button" data-portal-tab="incident-report" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" >Incident Report</button>
+<button type="button" data-portal-tab="time-off" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" >Time Off Request</button>
+<button type="button" data-portal-tab="account-settings" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" >Account Settings</button>
+      </div>
+
+      <div id="portal-panels">
+        <div data-portal-panel="delay-report" class=""><h2 class="mb-6 font-heading text-2xl font-bold">Delay Report</h2>
+  <form id="delay-report-form" data-staff-form novalidate>
+    <div class="field-group"><label class="field-label" for="dr-name">Your Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="dr-name" name="yourName" required    /><p class="field-error"></p></div>
+    <div class="field-group"><label class="field-label" for="dr-email">Your Email Address <span class="required-mark">*</span></label><p class="field-hint">Used if you'd like to receive a confirmation email.</p><input class="field-input" type="email" id="dr-email" name="yourEmail" required    /><p class="field-error"></p></div>
+    <div class="field-group"><label class="field-label" for="dr-date">Date <span class="required-mark">*</span></label><input class="field-input" type="date" id="dr-date" name="date" required /><p class="field-error"></p></div>
+    <div class="field-group"><label class="field-label" for="dr-arrival">Time of Arrival <span class="required-mark">*</span></label><p class="field-hint">What time did you arrive at pickup/drop-off?</p><input class="field-input" type="time" id="dr-arrival" name="timeOfArrival" required /><p class="field-error"></p></div>
+    <div class="field-group"><label class="field-label" for="dr-scheduled">Scheduled Time of Pickup <span class="required-mark">*</span></label><p class="field-hint">What time was the client scheduled to be picked up or dropped off?</p><input class="field-input" type="time" id="dr-scheduled" name="scheduledTimeOfPickup" required /><p class="field-error"></p></div>
+    <div class="field-group"><label class="field-label" for="dr-actual">Time of Actual Pickup <span class="required-mark">*</span></label><p class="field-hint">What time was the client picked up or dropped off?</p><input class="field-input" type="time" id="dr-actual" name="timeOfActualPickup" required /><p class="field-error"></p></div>
+    <div class="field-group"><label class="field-label" for="dr-client">Client's Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="dr-client" name="clientName" required    /><p class="field-error"></p></div>
+    <div class="field-group"><fieldset><legend class="field-label">Reason for Delay <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="reasonForDelay" value="not_ready" required class="mt-1" />Client was not ready at arrival</label><label class="field-radio-row"><input type="radio" name="reasonForDelay" value="traffic" required class="mt-1" />Traffic</label><label class="field-radio-row"><input type="radio" name="reasonForDelay" value="loading_difficulty" required class="mt-1" />Had difficulty loading client</label><label class="field-radio-row"><input type="radio" name="reasonForDelay" value="mechanical" required class="mt-1" />Mechanical issues with vehicle</label><label class="field-radio-row"><input type="radio" name="reasonForDelay" value="road_conditions" required class="mt-1" />Road conditions</label><label class="field-radio-row"><input type="radio" name="reasonForDelay" value="weather" required class="mt-1" />Weather</label><label class="field-radio-row"><input type="radio" name="reasonForDelay" value="other" required class="mt-1" />Other</label></div><p class="field-error"></p></fieldset></div>
+    <div class="field-group"><label class="field-label" for="dr-comments">Comments</label><p class="field-hint">Do you have any additional information you would like to provide?</p><textarea class="field-textarea" id="dr-comments" name="comments" ></textarea><p class="field-error"></p></div>
+    <button type="submit" class="btn-primary w-full sm:w-auto">Submit Delay Report</button>
+  </form>
+</div>
+<div data-portal-panel="pre-trip" class="hidden"><h2 class="mb-6 font-heading text-2xl font-bold">Pre-Trip Inspection</h2>
+  <form id="pre-trip-form" data-staff-form novalidate>
+    <div class="field-fieldset">
+      <p class="field-legend">General Information</p>
+      <div class="field-group"><label class="field-label" for="pt-date">Date of Inspection <span class="required-mark">*</span></label><input class="field-input" type="date" id="pt-date" name="dateOfInspection" required /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="pt-name">Your Name <span class="required-mark">*</span></label><p class="field-hint">First name and last name initial. Example: John D.</p><input class="field-input" type="text" id="pt-name" name="yourName" required    /><p class="field-error"></p></div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Scheduled Maintenance Reporting</p>
+      <div class="field-group"><fieldset><legend class="field-label">Was the oil change for this vehicle completed within the last two weeks? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="oilChangeRecent" value="no" required class="mt-1" />No</label><label class="field-radio-row"><input type="radio" name="oilChangeRecent" value="yes" required class="mt-1" />Yes — state the date and mechanic shop that completed it</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><label class="field-label" for="oil-change-details">Date and Mechanic Shop</label><input class="field-input" type="text" id="oil-change-details" name="oilChangeDetails"     /><p class="field-error"></p></div>
+      <div class="field-group"><fieldset><legend class="field-label">Is this vehicle's oil change due within the next 100 miles or less? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="oilChangeDueSoon" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="oilChangeDueSoon" value="no" required class="mt-1" />No — state when it will be due</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><label class="field-label" for="oil-change-due-when">When will it be due?</label><input class="field-input" type="text" id="oil-change-due-when" name="oilChangeDueWhen"     /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="odometer-next-oil">Odometer Reading for Next Oil Change <span class="required-mark">*</span></label><p class="field-hint">Located on the oil change reminder sticker.</p><input class="field-input" type="text" id="odometer-next-oil" name="odometerNextOilChange" required    /><p class="field-error"></p></div>
+      <div class="field-group"><fieldset><legend class="field-label">Were this vehicle's fluids (brake, coolant, steering, wiper, etc.) topped off by you personally after the most recent oil change? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="fluidsTopped" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="fluidsTopped" value="no" required class="mt-1" />No — please explain</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><label class="field-label" for="fluids-explain">Explanation</label><textarea class="field-textarea" id="fluids-explain" name="fluidsExplain" ></textarea><p class="field-error"></p></div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Pre-Trip Inspection</p>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="field-group"><label class="field-label" for="vin-last4">VIN — Last Four Digits <span class="required-mark">*</span></label><input class="field-input" type="text" id="vin-last4" name="vinLast4" required   maxlength="4" /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="vehicle-make">Make of Vehicle <span class="required-mark">*</span></label><input class="field-input" type="text" id="vehicle-make" name="vehicleMake" required placeholder="Honda"   /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="vehicle-model">Model of Vehicle <span class="required-mark">*</span></label><input class="field-input" type="text" id="vehicle-model" name="vehicleModel" required placeholder="Accord LX"   /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="license-plate">License Plate Number <span class="required-mark">*</span></label><p class="field-hint">No spaces. Minimum 6 characters.</p><input class="field-input" type="text" id="license-plate" name="licensePlate" required    /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="odometer-reading">Odometer Reading <span class="required-mark">*</span></label><input class="field-input" type="text" id="odometer-reading" name="odometerReading" required    /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="fuel-level">Fuel Level <span class="required-mark">*</span></label><select class="field-select" id="fuel-level" name="fuelLevel" required><option value="">Select an option</option><option value="full">Full</option><option value="3/4">3/4</option><option value="1/2">1/2</option><option value="1/4">1/4</option><option value="low">Low</option></select><p class="field-error"></p></div>
+      </div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Vehicle Inspection Checklist</p>
+      <p class="field-hint">Check only the items that you have completed, inspected, or have in your possession.</p>
+      <div class="field-group"><fieldset><div><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="fluids_proper" class="mt-1" />Fluids at proper level: Power Steering, Brake, Transmission, Windshield Wiper, Motor Oil, Water/Coolant</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="no_leaks" class="mt-1" />No leaks or obstructions under vehicle: oil, air, gas, etc.</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="body_damage_noted" class="mt-1" />Note any dents, scratches, stains, tears/rips, or damage/tampering</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="decals" class="mt-1" />Proper decals and signs outside vehicle displayed properly</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="lights" class="mt-1" />Lights: head, turn signals, tail, brake, hazards, reverse</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="muffler" class="mt-1" />Muffler condition/securement</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="battery" class="mt-1" />Battery housing/connections</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="seats" class="mt-1" />Driver and passenger seat</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="glass_mirrors" class="mt-1" />Glass/mirrors free of damage</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="gauges" class="mt-1" />Gauges: Volt, Fuel, Temp, Oil Pressure</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="clean_exterior" class="mt-1" />Clean exterior</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="brakes" class="mt-1" />Brakes</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="doors" class="mt-1" />Passenger/driver doors</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="interior_lights" class="mt-1" />Interior lights</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="clean_interior" class="mt-1" />Clean interior</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="belts_hoses_wires" class="mt-1" />Visible belts, hoses, wires</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="emergency_brake" class="mt-1" />Emergency brake</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="wipers" class="mt-1" />Windshield wipers and blades</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="ac_heater" class="mt-1" />AC/Heater/Defroster</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="seatbelts" class="mt-1" />Seatbelts/Seatbelt Extenders</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="first_aid" class="mt-1" />First Aid Kit: Stocked</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="horn" class="mt-1" />Horn</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="tire_condition" class="mt-1" />Condition of tires: pressure/tread and lug nuts</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="accident_kit" class="mt-1" />Accident Kit: triangles/fire extinguisher</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="trash_cans" class="mt-1" />Trash cans in vehicle empty and cleaned</label><label class="field-checkbox-row"><input type="checkbox" name="inspectionChecklist" value="other_tasks" class="mt-1" />Other tasks completed</label></div></fieldset></div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Driver Preparedness</p>
+      <p class="field-hint">Check only the items that you have completed, inspected, or have in your possession.</p>
+      <div class="field-group"><fieldset><div><label class="field-checkbox-row"><input type="checkbox" name="driverPreparedness" value="air_freshener" class="mt-1" />Air freshener</label><label class="field-checkbox-row"><input type="checkbox" name="driverPreparedness" value="license" class="mt-1" />State-issued driver's license</label><label class="field-checkbox-row"><input type="checkbox" name="driverPreparedness" value="phone_charger" class="mt-1" />Cell phone and charger</label><label class="field-checkbox-row"><input type="checkbox" name="driverPreparedness" value="registration" class="mt-1" />Vehicle Registration/Insurance Information</label><label class="field-checkbox-row"><input type="checkbox" name="driverPreparedness" value="sanitizer" class="mt-1" />Hand Sanitizer and Wipes</label></div></fieldset></div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Tire Inspection</p>
+      <div class="field-group"><fieldset><legend class="field-label">Did you perform an inspection on the vehicle's tires as well? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="tireInspectionDone" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="tireInspectionDone" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><fieldset><legend class="field-label">There were no visible signs of irregular wear or damage, including cuts, bulges, cracks, or objects stuck in them such as nails, glass, or small rocks. <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="tiresNoIrregularWear" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="tiresNoIrregularWear" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="field-group"><label class="field-label" for="psi-front-driver">Tire Pressure — Front Driver Side <span class="required-mark">*</span></label><p class="field-hint">Use a tire-pressure gauge to get the current PSI.</p><input class="field-input" type="text" id="psi-front-driver" name="tirePressureFrontDriver" required   maxlength="2" /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="psi-back-driver">Tire Pressure — Back Driver Side <span class="required-mark">*</span></label><p class="field-hint">Use a tire-pressure gauge to get the current PSI.</p><input class="field-input" type="text" id="psi-back-driver" name="tirePressureBackDriver" required   maxlength="2" /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="psi-front-pax">Tire Pressure — Front Passenger Side <span class="required-mark">*</span></label><p class="field-hint">Use a tire-pressure gauge to get the current PSI.</p><input class="field-input" type="text" id="psi-front-pax" name="tirePressureFrontPassenger" required   maxlength="2" /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="psi-back-pax">Tire Pressure — Back Passenger Side <span class="required-mark">*</span></label><p class="field-hint">Use a tire-pressure gauge to get the current PSI.</p><input class="field-input" type="text" id="psi-back-pax" name="tirePressureBackPassenger" required   maxlength="2" /><p class="field-error"></p></div>
+      </div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Comments / Concerns</p>
+      <div class="field-group"><fieldset><legend class="field-label">Do you have any comments, questions, or concerns regarding your pre-trip inspection? Did you notice anything misplaced or needing repair? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="hasConcerns" value="no" required class="mt-1" />No</label><label class="field-radio-row"><input type="radio" name="hasConcerns" value="yes" required class="mt-1" />Yes</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><label class="field-label" for="pt-comments">Comments, Questions, or Concerns</label><p class="field-hint">Please use this section to inform your supervisor of any issues discovered during the pre-trip inspection.</p><textarea class="field-textarea" id="pt-comments" name="comments" ></textarea><p class="field-error"></p></div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Certification</p>
+      <p class="text-sm text-ink/70 dark:text-paper/70">
+        I have personally inspected this vehicle and do hereby certify that all items are safe,
+        repaired, or replaced and meet safety standards.
+      </p>
+    </div>
+    
+      <div class="field-fieldset" data-signature>
+        <p class="field-legend">Signature</p>
+        <div class="mt-4 flex gap-2" role="tablist">
+          <button type="button" data-signature-tab="draw" aria-selected="true" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Draw</button>
+          <button type="button" data-signature-tab="type" aria-selected="false" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Type</button>
+        </div>
+
+        <div data-signature-panel="draw" class="mt-4">
+          <canvas data-signature-canvas class="h-40 w-full rounded-md border border-line-light bg-white dark:border-line-dark"></canvas>
+          <button type="button" data-signature-clear class="mt-2 text-xs font-heading font-semibold text-red">Clear</button>
+        </div>
+        <div data-signature-panel="type" class="mt-4 hidden">
+          <input type="text" data-signature-type-input class="field-input font-signature text-2xl italic" placeholder="Type your full name" />
+        </div>
+
+        <input type="hidden" data-signature-value name="preTripSignature" />
+
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="preTrip-sig-name">Full Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="preTrip-sig-name" name="preTripSignatureFullName" required    /><p class="field-error"></p></div>
+        </div>
+        <div class="field-group"><label class="field-checkbox-row"><input type="checkbox" id="preTrip-sig-confirm" name="preTripSignatureConfirm" value="yes" required class="mt-1" />I confirm this is my legal signature.</label><p class="field-error"></p></div>
+      </div>
+    
+
+    <p class="mb-6 rounded-md border border-red/30 bg-red/5 p-4 text-sm text-ink/70 dark:text-paper/70">
+      Friendly reminder: all passengers must wear a seatbelt and all kids must be seated in the backseat.
+    </p>
+
+    <button type="submit" class="btn-primary w-full sm:w-auto">Submit Pre-Trip Inspection</button>
+  </form>
+</div>
+<div data-portal-panel="hazard-report" class="hidden"><h2 class="mb-6 font-heading text-2xl font-bold">Hazard Report Card</h2>
+  <form id="hazard-report-form" data-staff-form novalidate>
+    <div class="field-group"><fieldset><legend class="field-label">Report Type <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="reportType" value="hazard" required class="mt-1" />Hazard</label><label class="field-radio-row"><input type="radio" name="reportType" value="near_miss" required class="mt-1" />Near-miss incident</label><label class="field-radio-row"><input type="radio" name="reportType" value="unsafe_practice" required class="mt-1" />Unsafe practice</label><label class="field-radio-row"><input type="radio" name="reportType" value="other" required class="mt-1" />Other</label></div><p class="field-error"></p></fieldset></div>
+    <div class="field-group"><label class="field-label" for="hz-date">Date</label><input class="field-input" type="date" id="hz-date" name="date"  /><p class="field-error"></p></div>
+    <div class="field-group"><label class="field-label" for="hz-time">Time <span class="required-mark">*</span></label><input class="field-input" type="time" id="hz-time" name="time" required /><p class="field-error"></p></div>
+    <div class="field-group"><label class="field-label" for="hz-location">Location</label><input class="field-input" type="text" id="hz-location" name="location"     /><p class="field-error"></p></div>
+    <div class="field-group"><label class="field-label" for="hz-observation">Observation <span class="required-mark">*</span></label><textarea class="field-textarea" id="hz-observation" name="observation" required></textarea><p class="field-error"></p></div>
+    <button type="submit" class="btn-primary w-full sm:w-auto">Submit Hazard Report</button>
+  </form>
+</div>
+<div data-portal-panel="incident-report" class="hidden"><h2 class="mb-6 font-heading text-2xl font-bold">Incident Report</h2>
+  <form id="incident-report-form" data-staff-form novalidate>
+    <p class="mb-6 text-sm text-ink/70 dark:text-paper/70">
+      To be completed by the employee or customer/visitor immediately following any incident that
+      resulted in injury, theft, property damage, or violation of company policy and/or
+      procedures, and submitted to the supervisor. The supervisor should conduct their own
+      investigation and turn in all necessary reporting forms to the insurance agent or carrier.
+    </p>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Employee Involved</p>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="field-group"><label class="field-label" for="emp-first">First Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp-first" name="employeeFirstName" required    /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="emp-last">Last Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp-last" name="employeeLastName" required    /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="emp-title">Job Title <span class="required-mark">*</span></label><input class="field-input" type="text" id="emp-title" name="employeeJobTitle" required    /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="emp-dob">Date of Birth <span class="required-mark">*</span></label><input class="field-input" type="date" id="emp-dob" name="employeeDob" required /><p class="field-error"></p></div>
+      </div>
+      <div class="field-group"><label class="field-label" for="emp-phone">Phone</label><input class="field-input" type="tel" id="emp-phone" name="employeePhone"  placeholder="(555) 555-5555" /><p class="field-error"></p></div>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="field-group"><label class="field-label" for="emp-email">Email</label><input class="field-input" type="email" id="emp-email" name="employeeEmail"     /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="emp-email-confirm">Confirm Email Address</label><input class="field-input" type="email" id="emp-email-confirm" name="employeeConfirmEmail"   data-confirm-of="employeeEmail"  /><p class="field-error"></p></div>
+      </div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Customer / Visitor / Employee Involved</p>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="field-group"><label class="field-label" for="inv-first">First Name</label><input class="field-input" type="text" id="inv-first" name="involvedFirstName"     /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="inv-last">Last Name</label><input class="field-input" type="text" id="inv-last" name="involvedLastName"     /><p class="field-error"></p></div>
+      </div>
+      
+      <div class="field-fieldset">
+        <p class="field-legend">Address</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="involved-street">Street Address</label><input class="field-input" type="text" id="involved-street" name="involvedStreet"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="involved-line2">Address Line 2</label><input class="field-input" type="text" id="involved-line2" name="involvedLine2"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="involved-city">City</label><input class="field-input" type="text" id="involved-city" name="involvedCity"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="involved-state">State</label><select class="field-select" id="involved-state" name="involvedState" ><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="involved-zip">Postal/Zip Code</label><input class="field-input" type="text" id="involved-zip" name="involvedZip"     /><p class="field-error"></p></div>
+          <div class="field-group"><label class="field-label" for="involved-country">Country</label><select class="field-select" id="involved-country" name="involvedCountry" ><option value="United States" selected>United States</option><option value="Canada">Canada</option><option value="Mexico">Mexico</option><option value="Other">Other</option></select><p class="field-error"></p></div>
+        </div>
+      </div>
+    
+      <div class="field-group"><label class="field-label" for="inv-phone">Phone</label><input class="field-input" type="tel" id="inv-phone" name="involvedPhone"  placeholder="(555) 555-5555" /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="inv-email">Email</label><input class="field-input" type="email" id="inv-email" name="involvedEmail"     /><p class="field-error"></p></div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Incident Information</p>
+      <div class="field-group"><label class="field-label" for="inc-date">Date <span class="required-mark">*</span></label><input class="field-input" type="date" id="inc-date" name="incidentDate" required /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="inc-time">Time <span class="required-mark">*</span></label><p class="field-hint">Approximate time of incident.</p><input class="field-input" type="time" id="inc-time" name="incidentTime" required /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="inc-location">Location of incident <span class="required-mark">*</span></label><input class="field-input" type="text" id="inc-location" name="incidentLocation" required    /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="inc-what-happened">What happened / what was the cause of the incident <span class="required-mark">*</span></label><textarea class="field-textarea" id="inc-what-happened" name="whatHappened" required></textarea><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="inc-nature">Nature of injury/theft/property damage/violation <span class="required-mark">*</span></label><textarea class="field-textarea" id="inc-nature" name="natureOfIncident" required></textarea><p class="field-error"></p></div>
+      <div class="field-group"><fieldset><legend class="field-label">If injuries were involved, how were they handled</legend><div><label class="field-radio-row"><input type="radio" name="injuryHandling" value="ambulance"  class="mt-1" />Ambulance used</label><label class="field-radio-row"><input type="radio" name="injuryHandling" value="will_seek"  class="mt-1" />Will seek medical attention</label><label class="field-radio-row"><input type="radio" name="injuryHandling" value="not_seeking"  class="mt-1" />Medical attention not being sought at this time</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><fieldset><legend class="field-label">Were there any witnesses? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="hasWitnesses" value="no" required class="mt-1" />No</label><label class="field-radio-row"><input type="radio" name="hasWitnesses" value="yes" required class="mt-1" />Yes — list name and contact information below</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><label class="field-label" for="witness-info">Witness Name and Contact Information</label><textarea class="field-textarea" id="witness-info" name="witnessInfo" ></textarea><p class="field-error"></p></div>
+    </div>
+
+    
+      <div class="field-fieldset" data-signature>
+        <p class="field-legend">Involved Party Signature</p>
+        <div class="mt-4 flex gap-2" role="tablist">
+          <button type="button" data-signature-tab="draw" aria-selected="true" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Draw</button>
+          <button type="button" data-signature-tab="type" aria-selected="false" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Type</button>
+        </div>
+
+        <div data-signature-panel="draw" class="mt-4">
+          <canvas data-signature-canvas class="h-40 w-full rounded-md border border-line-light bg-white dark:border-line-dark"></canvas>
+          <button type="button" data-signature-clear class="mt-2 text-xs font-heading font-semibold text-red">Clear</button>
+        </div>
+        <div data-signature-panel="type" class="mt-4 hidden">
+          <input type="text" data-signature-type-input class="field-input font-signature text-2xl italic" placeholder="Type your full name" />
+        </div>
+
+        <input type="hidden" data-signature-value name="involvedPartySignature" />
+
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="involvedParty-sig-name">Full Name</label><input class="field-input" type="text" id="involvedParty-sig-name" name="involvedPartySignatureFullName"     /><p class="field-error"></p></div>
+        </div>
+        <div class="field-group"><label class="field-checkbox-row"><input type="checkbox" id="involvedParty-sig-confirm" name="involvedPartySignatureConfirm" value="yes"  class="mt-1" />I confirm this is my legal signature.</label><p class="field-error"></p></div>
+      </div>
+    
+
+    <div class="field-fieldset">
+      <p class="field-legend">Document</p>
+      <div class="field-group"><label class="field-label" for="incident-upload">Upload a File</label><input class="field-input" type="file" id="incident-upload" name="document"  /><p class="field-error"></p></div>
+    </div>
+
+    
+      <div class="field-fieldset" data-signature>
+        <p class="field-legend">Driver Signature</p>
+        <div class="mt-4 flex gap-2" role="tablist">
+          <button type="button" data-signature-tab="draw" aria-selected="true" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Draw</button>
+          <button type="button" data-signature-tab="type" aria-selected="false" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Type</button>
+        </div>
+
+        <div data-signature-panel="draw" class="mt-4">
+          <canvas data-signature-canvas class="h-40 w-full rounded-md border border-line-light bg-white dark:border-line-dark"></canvas>
+          <button type="button" data-signature-clear class="mt-2 text-xs font-heading font-semibold text-red">Clear</button>
+        </div>
+        <div data-signature-panel="type" class="mt-4 hidden">
+          <input type="text" data-signature-type-input class="field-input font-signature text-2xl italic" placeholder="Type your full name" />
+        </div>
+
+        <input type="hidden" data-signature-value name="driverSignature" />
+
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="driver-sig-name">Full Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="driver-sig-name" name="driverSignatureFullName" required    /><p class="field-error"></p></div>
+        </div>
+        <div class="field-group"><label class="field-checkbox-row"><input type="checkbox" id="driver-sig-confirm" name="driverSignatureConfirm" value="yes" required class="mt-1" />I confirm this is my legal signature.</label><p class="field-error"></p></div>
+      </div>
+    
+    <div class="field-group"><label class="field-label" for="driver-sig-date">Date Signed <span class="required-mark">*</span></label><input class="field-input" type="date" id="driver-sig-date" name="driverSignatureDate" required /><p class="field-error"></p></div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Employer / Management Use Only</p>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="field-group"><label class="field-label" for="received-first">Received By — First Name</label><input class="field-input" type="text" id="received-first" name="receivedByFirstName"     /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="received-last">Received By — Last Name</label><input class="field-input" type="text" id="received-last" name="receivedByLastName"     /><p class="field-error"></p></div>
+      </div>
+      <div class="field-group"><label class="field-label" for="followup-statement">Follow-up Statement</label><textarea class="field-textarea" id="followup-statement" name="followUpStatement" ></textarea><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="mgmt-date">Date</label><input class="field-input" type="date" id="mgmt-date" name="managementDate"  /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="mgmt-phone">Phone Number</label><input class="field-input" type="tel" id="mgmt-phone" name="managementPhone"  placeholder="(555) 555-5555" /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="company-name-address">Company Name and Address</label><input class="field-input" type="text" id="company-name-address" name="companyNameAddress"  placeholder="Caring Hands Transport, 886 East 78th Avenue, Denver, CO 80229"   /><p class="field-error"></p></div>
+    </div>
+
+    <button type="submit" class="btn-primary w-full sm:w-auto">Submit Incident Report</button>
+  </form>
+</div>
+<div data-portal-panel="time-off" class="hidden"><h2 class="mb-6 font-heading text-2xl font-bold">Time Off Request</h2>
+  <form id="time-off-form" data-staff-form novalidate>
+    <div class="field-fieldset">
+      <p class="field-legend">Employee Information</p>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="field-group"><label class="field-label" for="to-first">First Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="to-first" name="firstName" required    /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="to-last">Last Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="to-last" name="lastName" required    /><p class="field-error"></p></div>
+      </div>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="field-group"><label class="field-label" for="to-email">Your Email Address <span class="required-mark">*</span></label><input class="field-input" type="email" id="to-email" name="email" required    /><p class="field-error"></p></div>
+        <div class="field-group"><label class="field-label" for="to-email-confirm">Confirm Email Address <span class="required-mark">*</span></label><input class="field-input" type="email" id="to-email-confirm" name="confirmEmail" required  data-confirm-of="email"  /><p class="field-error"></p></div>
+      </div>
+    </div>
+
+    <div class="field-group"><fieldset><legend class="field-label">Which Department Do You Work In? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="department" value="transportation" required class="mt-1" />Transportation - NEMT/NMT Driver</label><label class="field-radio-row"><input type="radio" name="department" value="day_program" required class="mt-1" />Day Program - Direct Care and/or NMT Driver</label><label class="field-radio-row"><input type="radio" name="department" value="administration" required class="mt-1" />Administration - office staff/management</label><label class="field-radio-row"><input type="radio" name="department" value="intern" required class="mt-1" />Intern</label><label class="field-radio-row"><input type="radio" name="department" value="residential" required class="mt-1" />Residential</label><label class="field-radio-row"><input type="radio" name="department" value="inhome_services" required class="mt-1" />In-home Services: Respite, Homemaking, Personal Care, Mentorship</label></div><p class="field-error"></p></fieldset></div>
+
+    <div class="field-group"><fieldset><legend class="field-label">Employment Status <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="employmentStatus" value="full_time" required class="mt-1" />Full Time</label><label class="field-radio-row"><input type="radio" name="employmentStatus" value="part_time" required class="mt-1" />Part Time</label><label class="field-radio-row"><input type="radio" name="employmentStatus" value="contractor" required class="mt-1" />Contractor</label><label class="field-radio-row"><input type="radio" name="employmentStatus" value="other" required class="mt-1" />Other</label></div><p class="field-error"></p></fieldset></div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">PTO</p>
+      <div class="field-group"><fieldset><legend class="field-label">Are You Eligible for PTO? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="ptoEligible" value="yes" required class="mt-1" />YES</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><fieldset><legend class="field-label">Would You Like To Use Your PTO For This Request? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="usePto" value="no" required class="mt-1" />NO</label><label class="field-radio-row"><input type="radio" name="usePto" value="yes" required class="mt-1" />YES</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><fieldset><legend class="field-label">Do You Know How Many PTO Hours You Currently Have? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="knowsPtoHours" value="no" required class="mt-1" />NO</label><label class="field-radio-row"><input type="radio" name="knowsPtoHours" value="yes" required class="mt-1" />YES</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><label class="field-checkbox-row"><input type="checkbox" id="pto-acknowledgment" name="ptoAcknowledgment" value="yes" required class="mt-1" />I understand that once my time off request has been approved I must then go to the ADP Run website and enter the number of PTO hours I would like to have added to my timesheet. Otherwise I will not be able to use my PTO hours for this time off request.</label><p class="field-error"></p></div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Time Off Request</p>
+      <div class="field-group"><fieldset><legend class="field-label">Request Type <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="requestType" value="whole_day" required class="mt-1" />WHOLE DAY</label><label class="field-radio-row"><input type="radio" name="requestType" value="half_day" required class="mt-1" />HALF DAY — please include the hours, e.g. 8AM–10AM</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><label class="field-label" for="half-day-hours">Half-Day Hours</label><input class="field-input" type="text" id="half-day-hours" name="halfDayHours"  placeholder="8AM-10AM"   /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="first-day-off">Date Requested Off or First Day of Multi-Day Request <span class="required-mark">*</span></label><input class="field-input" type="date" id="first-day-off" name="firstDayOff" required /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="return-date">Date You Will Be Returning To Work <span class="required-mark">*</span></label><input class="field-input" type="date" id="return-date" name="returnDate" required /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="days-needed">Number of Days Needed Off <span class="required-mark">*</span></label><p class="field-hint">Must be a number greater than or equal to 1.</p><input class="field-input" type="number" id="days-needed" name="daysNeeded" required    /><p class="field-error"></p></div>
+      <div class="field-group"><fieldset><legend class="field-label">Reason You Are Requesting Off <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="reasonOff" value="death_in_family" required class="mt-1" />Death in family — specify relationship below</label><label class="field-radio-row"><input type="radio" name="reasonOff" value="doctor_appointment" required class="mt-1" />Doctor appointment — include proof of appointment</label><label class="field-radio-row"><input type="radio" name="reasonOff" value="jury_duty" required class="mt-1" />Jury duty — specify below</label><label class="field-radio-row"><input type="radio" name="reasonOff" value="military_duty" required class="mt-1" />Military duty — specify below</label><label class="field-radio-row"><input type="radio" name="reasonOff" value="vacation" required class="mt-1" />Vacation — specify below</label><label class="field-radio-row"><input type="radio" name="reasonOff" value="family_event" required class="mt-1" />Family event — specify below</label><label class="field-radio-row"><input type="radio" name="reasonOff" value="family_issue" required class="mt-1" />Family issue — specify below</label><label class="field-radio-row"><input type="radio" name="reasonOff" value="appointment" required class="mt-1" />Appointment — specify below</label><label class="field-radio-row"><input type="radio" name="reasonOff" value="wedding" required class="mt-1" />Wedding — specify relationship below</label><label class="field-radio-row"><input type="radio" name="reasonOff" value="other" required class="mt-1" />Other</label></div><p class="field-error"></p></fieldset></div>
+      <div class="field-group"><label class="field-label" for="further-explanation">Further Explanation <span class="required-mark">*</span></label><textarea class="field-textarea" id="further-explanation" name="furtherExplanation" required data-min-words="25" data-word-counter="further-explanation-counter"></textarea><p id="further-explanation-counter" class="field-hint mt-1"></p><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="time-off-documentation">Attach Documentation</label><input class="field-input" type="file" id="time-off-documentation" name="documentation"  /><p class="field-error"></p></div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="text-sm text-ink/70 dark:text-paper/70">
+        I understand that I am not guaranteed these date(s) off. The time off will be considered
+        to be approved when the employee receives his/her copy of the request off form with the
+        supervisor's signature on it.
+      </p>
+    </div>
+    
+      <div class="field-fieldset" data-signature>
+        <p class="field-legend">Signature</p>
+        <div class="mt-4 flex gap-2" role="tablist">
+          <button type="button" data-signature-tab="draw" aria-selected="true" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Draw</button>
+          <button type="button" data-signature-tab="type" aria-selected="false" class="rounded-md border border-line-light px-4 py-2 text-sm font-heading font-semibold dark:border-line-dark">Type</button>
+        </div>
+
+        <div data-signature-panel="draw" class="mt-4">
+          <canvas data-signature-canvas class="h-40 w-full rounded-md border border-line-light bg-white dark:border-line-dark"></canvas>
+          <button type="button" data-signature-clear class="mt-2 text-xs font-heading font-semibold text-red">Clear</button>
+        </div>
+        <div data-signature-panel="type" class="mt-4 hidden">
+          <input type="text" data-signature-type-input class="field-input font-signature text-2xl italic" placeholder="Type your full name" />
+        </div>
+
+        <input type="hidden" data-signature-value name="timeOffSignature" />
+
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="field-group"><label class="field-label" for="timeOff-sig-name">Full Name <span class="required-mark">*</span></label><input class="field-input" type="text" id="timeOff-sig-name" name="timeOffSignatureFullName" required    /><p class="field-error"></p></div>
+        </div>
+        <div class="field-group"><label class="field-checkbox-row"><input type="checkbox" id="timeOff-sig-confirm" name="timeOffSignatureConfirm" value="yes" required class="mt-1" />I confirm this is my legal signature.</label><p class="field-error"></p></div>
+      </div>
+    
+
+    <div class="mb-6 rounded-md border border-red/30 bg-red/5 p-4 text-sm text-ink/70 dark:text-paper/70">
+      <ul class="list-disc space-y-1 pl-4">
+        <li>PTO is accrued at the rate of 0.02 hour per hour worked for all employees (full or part time). See ADP Mobile for accrual balance.</li>
+        <li>To use PTO, employee must also request the total number of hours through ADP Mobile.</li>
+        <li>Time-off request must be made at least 72 business hours in advance.</li>
+        <li>If requested date is unavailable, choose an alternate date.</li>
+        <li>Falsification of a written statement or physician's note is grounds for disciplinary action, including dismissal. Further documentation may be requested.</li>
+      </ul>
+    </div>
+
+    <button type="submit" class="btn-primary w-full sm:w-auto">Submit Time Off Request</button>
+  </form>
+</div>
+<div data-portal-panel="account-settings" class="hidden"><h2 class="mb-6 font-heading text-2xl font-bold">Account Settings</h2>
+  <form id="account-settings-form" data-staff-form novalidate>
+    <p class="mb-6 text-sm text-ink/70 dark:text-paper/70">
+      Confirm your current username and password before applying any changes. Leave "New
+      Username" blank if you only want to change your password.
+    </p>
+
+    <div class="field-fieldset">
+      <p class="field-legend">Confirm Current Credentials</p>
+      <div class="field-group"><label class="field-label" for="as-current-username">Current Username <span class="required-mark">*</span></label><input class="field-input" type="text" id="as-current-username" name="currentUsername" required    /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="as-current-password">Current Password <span class="required-mark">*</span></label><input class="field-input" type="password" id="as-current-password" name="currentPassword" required    /><p class="field-error"></p></div>
+    </div>
+
+    <div class="field-fieldset">
+      <p class="field-legend">New Credentials</p>
+      <div class="field-group"><label class="field-label" for="as-new-username">New Username</label><p class="field-hint">Leave blank to keep your current username.</p><input class="field-input" type="text" id="as-new-username" name="newUsername"     /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="as-new-password">New Password</label><p class="field-hint">Leave blank to keep your current password.</p><input class="field-input" type="password" id="as-new-password" name="newPassword"     /><p class="field-error"></p></div>
+      <div class="field-group"><label class="field-label" for="as-confirm-new-password">Confirm New Password</label><input class="field-input" type="password" id="as-confirm-new-password" name="confirmNewPassword"   data-confirm-of="newPassword"  /><p class="field-error"></p></div>
+    </div>
+
+    <button type="submit" class="btn-primary w-full sm:w-auto">Save Changes</button>
+  </form>
+</div>
+      </div>
+    </section>
+  </main>
+  <!-- ============ FOOTER ============ -->
+  <footer class="surface-elevated">
+    <div class="section grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="/assets/favicon-180-tM7O-atf.png" alt="Caring Hands Transport" class="h-9 w-9" />
+          <span class="font-heading text-base font-bold">Caring Hands Transport</span>
+        </a>
+        <p class="mt-4 text-sm text-ink/60 dark:text-paper/60">
+          Non-medical and non-emergent medical transportation for the Denver Metro Area.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">Company</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="about.html" class="text-ink/80 dark:text-paper/80 hover:text-red">About Us</a></li>
+          <li><a href="services.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Our Services</a></li>
+          <li><a href="jobs.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Jobs</a></li>
+          <li><a href="employee-referral.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Employee Referral Program</a></li>
+          <li><a href="contact.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">For Employees</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="employees-only.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Employees Only</a></li>
+          <li><a href="vehicle-maintenance.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Vehicle Maintenance</a></li>
+          <li><a href="staff-login.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Staff/Admin Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">Contact</h3>
+        <ul class="mt-4 space-y-2 text-sm text-ink/80 dark:text-paper/80">
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-phone text-red" aria-hidden="true"></i>
+            <a href="tel:+18886961993" class="hover:text-red">(888) 696-1993</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-clock text-red" aria-hidden="true"></i>
+            Mon&ndash;Fri, 5:30 AM&ndash;5:30 PM
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-red" aria-hidden="true"></i>
+            Denver Metro Area, Colorado
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-ink/10 dark:border-paper/10">
+      <div class="mx-auto max-w-6xl px-6 py-6 text-center text-xs text-ink/50 dark:text-paper/50">
+        All Rights Reserved. Caring Hands Transport <span class="copyright-year"></span>.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- <script type="module" src="/src/assets/js/auth.js"></script> -->
+  <!-- <script type="module">window.CHT.requireStaffAuth();</script> -->
+</body>
+</html>

@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: toggled by theme.js, not just system preference */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Brand palette — predominantly black, red + white for contrast/accent */
+  --color-ink: #0b0b0c;       /* primary dark background */
+  --color-charcoal: #17171a;  /* elevated dark surface (cards, header on dark) */
+  --color-paper: #ffffff;     /* primary light background */
+  --color-mist: #f5f5f3;      /* elevated light surface (cards, alt sections) */
+  --color-red: #d91f2b;       /* brand accent */
+  --color-red-dark: #9c1620;  /* hover / pressed state */
+  --color-line-dark: #2a2a2d; /* hairline borders on dark surfaces */
+  --color-line-light: #e4e3e0;/* hairline borders on light surfaces */
+
+  /* Type */
+  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .dark body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  legend {
+    padding: 0;
+    width: 100%;
+  }
+
+  /* Respect reduced-motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Visible keyboard focus everywhere — never suppressed */
+  :focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-heading font-semibold text-sm tracking-wide transition-colors duration-200 bg-red text-white hover:bg-red-dark;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-heading font-semibold text-sm tracking-wide transition-colors duration-200 border border-line-light text-ink hover:border-red hover:text-red dark:border-line-dark dark:text-paper dark:hover:border-red dark:hover:text-red;
+  }
+
+  .eyebrow {
+    @apply font-heading text-xs font-semibold uppercase tracking-[0.18em] text-red;
+  }
+
+  .section {
+    @apply mx-auto max-w-6xl px-6 py-16 sm:py-20;
+  }
+
+  /* ---- Theme-safe surfaces — every section uses one of these,
+     nothing is ever hardcoded to a single mode ---- */
+  .surface-base {
+    @apply bg-paper text-ink dark:bg-ink dark:text-paper;
+  }
+
+  .surface-elevated {
+    @apply bg-mist text-ink dark:bg-charcoal dark:text-paper;
+  }
+
+  /* ---- Form primitives, shared by every form page ---- */
+  .field-label {
+    @apply mb-1.5 block font-heading text-sm font-semibold;
+  }
+
+  .field-hint {
+    @apply mb-1.5 text-xs text-ink/60 dark:text-paper/60;
+  }
+
+  .field-input,
+  .field-select,
+  .field-textarea {
+    @apply w-full rounded-md border border-line-light bg-paper px-3 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:border-red focus:outline-none dark:border-line-dark dark:bg-charcoal dark:text-paper dark:placeholder:text-paper/40;
+  }
+
+  .field-textarea {
+    @apply min-h-[8rem] resize-y;
+  }
+
+  .field-error {
+    @apply mt-1.5 text-xs font-medium text-red hidden;
+  }
+
+  .field-group {
+    @apply mb-6;
+  }
+
+  .field-checkbox-row,
+  .field-radio-row {
+    @apply flex items-start gap-2 py-1 text-sm;
+  }
+
+  .field-fieldset {
+    @apply mb-8 rounded-lg border border-line-light p-6 dark:border-line-dark;
+  }
+
+  .field-legend {
+    @apply px-2 font-heading text-base font-bold;
+  }
+
+  .required-mark {
+    @apply text-red;
+  }
+}
+
+@keyframes cht-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.animate-cht-pulse {
+  animation: cht-pulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cht-pulse {
+    animation: none;
+  }
+}

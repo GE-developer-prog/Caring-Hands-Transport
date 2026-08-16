@@ -1,0 +1,1 @@
+import"./animations-DtPzRDIC.js";import"./api-BXEZn-wm.js";import"./forms-CBwlF2yK.js";document.addEventListener(`DOMContentLoaded`,function(){var e=document.getElementById(`referral-form`);e&&window.CHT.bindFormSubmit(e,window.CHT.submitEmployeeReferral,`Thanks — your referral has been submitted!`)});
