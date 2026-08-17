@@ -1,1 +1,0 @@
-import"./animations-DtPzRDIC.js";import"./api-BXEZn-wm.js";import"./forms-CBwlF2yK.js";import"./signature-4KvRmoBX.js";document.addEventListener(`DOMContentLoaded`,function(){var e=document.getElementById(`application-form`);e&&window.CHT.bindFormSubmit(e,window.CHT.submitEmploymentApplication,`Your application has been submitted!`)});

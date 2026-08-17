@@ -1,0 +1,56 @@
+services:
+  - type: web
+    name: caring-hands-transport
+    runtime: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    branch: main
+
+    routes:
+      - type: rewrite
+        source: /about
+        destination: /about.html
+
+      - type: rewrite
+        source: /services
+        destination: /services.html
+
+      - type: rewrite
+        source: /jobs
+        destination: /jobs.html
+
+      - type: rewrite
+        source: /contact
+        destination: /contact.html
+
+      - type: rewrite
+        source: /employee-referral
+        destination: /employee-referral.html
+
+      - type: rewrite
+        source: /vehicle-maintenance
+        destination: /vehicle-maintenance.html
+
+      - type: rewrite
+        source: /employees-only
+        destination: /employees-only.html
+
+      - type: rewrite
+        source: /staff-login
+        destination: /staff-login.html
+
+      - type: rewrite
+        source: /staff-portal
+        destination: /staff-portal.html
+
+      - type: rewrite
+        source: /feedback
+        destination: /feedback.html
+
+      - type: rewrite
+        source: /request-transportation
+        destination: /request-transportation.html
+
+      - type: rewrite
+        source: /employment-application
+        destination: /employment-application.html
