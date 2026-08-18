@@ -30,7 +30,7 @@
   <!-- ============ HEADER ============ -->
   <header class="sticky top-0 z-40 border-b border-line-light dark:border-line-dark bg-paper/90 dark:bg-ink/90 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
-      <a href="/" class="flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-3">
         <img src="/src/assets/logo/logo-transparent.svg" alt="Caring Hands Transport" class="h-10 w-10" />
         <span class="font-heading text-lg font-bold leading-tight">
           Caring Hands<br class="hidden sm:block" />
@@ -39,11 +39,11 @@
       </a>
 
       <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary">
-        <a href="/" class="font-heading text-sm font-medium hover:text-red">Home</a>
-        <a href="/about" class="font-heading text-sm font-medium hover:text-red">About Us</a>
-        <a href="/services" class="font-heading text-sm font-medium hover:text-red">Our Services</a>
-        <a href="/jobs" class="font-heading text-sm font-medium hover:text-red">Jobs</a>
-        <a href="/contact" class="font-heading text-sm font-medium hover:text-red">Contact</a>
+        <a href="index.html" class="font-heading text-sm font-medium hover:text-red">Home</a>
+        <a href="about.html" class="font-heading text-sm font-medium hover:text-red">About Us</a>
+        <a href="services.html" class="font-heading text-sm font-medium hover:text-red">Our Services</a>
+        <a href="jobs.html" class="font-heading text-sm font-medium hover:text-red">Jobs</a>
+        <a href="contact.html" class="font-heading text-sm font-medium hover:text-red">Contact</a>
       </nav>
 
       <div class="flex items-center gap-3">
@@ -61,7 +61,7 @@
           <i class="fa-solid fa-moon" data-theme-icon aria-hidden="true"></i>
         </button>
 
-        <a href="/request-transportation" class="btn-primary hidden sm:inline-flex">
+        <a href="request-transportation.html" class="btn-primary hidden sm:inline-flex">
           Request a Ride
         </a>
 
@@ -76,12 +76,12 @@
             aria-label="Mobile"
             class="absolute inset-x-0 top-full flex flex-col gap-1 border-b border-line-light bg-paper px-6 py-4 dark:border-line-dark dark:bg-ink"
           >
-            <a href="/" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Home</a>
-            <a href="/about" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">About Us</a>
-            <a href="/services" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Our Services</a>
-            <a href="/jobs" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Jobs</a>
-            <a href="/contact" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Contact</a>
-            <a href="/request-transportation" class="mt-2 rounded px-2 py-2 font-heading text-sm font-semibold text-red">Request a Ride</a>
+            <a href="index.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Home</a>
+            <a href="about.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">About Us</a>
+            <a href="services.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Our Services</a>
+            <a href="jobs.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Jobs</a>
+            <a href="contact.html" class="rounded px-2 py-2 font-heading text-sm font-medium hover:text-red">Contact</a>
+            <a href="request-transportation.html" class="mt-2 rounded px-2 py-2 font-heading text-sm font-semibold text-red">Request a Ride</a>
             <a href="tel:+18886961993" class="rounded px-2 py-2 font-heading text-sm font-medium">
               <i class="fa-solid fa-phone mr-2" aria-hidden="true"></i>(888) 696-1993
             </a>
@@ -146,7 +146,7 @@
         <div class="field-fieldset">
           <p class="field-legend">Eligibility</p>
           <div class="field-group"><fieldset><legend class="field-label">Are you at least 18 years old? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="age18" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="age18" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
-          <div class="field-group"><fieldset><legend class="field-label">For drivers only: Are you at least 25 years old?</legend><div><label class="field-radio-row"><input type="radio" name="age25Driver" value="yes"  class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="age25Driver" value="no"  class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
+          <div class="field-group"><fieldset><legend class="field-label">For drivers only: Are you at least 23 years old?</legend><div><label class="field-radio-row"><input type="radio" name="age23Driver" value="yes"  class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="age23Driver" value="no"  class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
           <div class="field-group"><fieldset><legend class="field-label">If hired, are you able to submit proof that you are legally eligible for employment in the United States? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="workEligible" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="workEligible" value="no" required class="mt-1" />No, please explain</label></div><p class="field-error"></p></fieldset></div>
           <div class="field-group"><label class="field-label" for="work-eligible-explain">Explanation</label><textarea class="field-textarea" id="work-eligible-explain" name="workEligibleExplain" ></textarea><p class="field-error"></p></div>
           <div class="field-group"><fieldset><legend class="field-label">Are you able to pass a CBI/FBI background check? <span class="required-mark">*</span></legend><div><label class="field-radio-row"><input type="radio" name="backgroundCheck" value="yes" required class="mt-1" />Yes</label><label class="field-radio-row"><input type="radio" name="backgroundCheck" value="no" required class="mt-1" />No</label></div><p class="field-error"></p></fieldset></div>
@@ -357,7 +357,7 @@
               online to have a non-certified copy emailed to you via
               <a href="https://www.colorado.gov/dmv" class="text-red hover:underline">colorado.gov/dmv</a>.
               The cost is approximately $9.00. Send a copy to
-              <a href="mailto:cs@caringhandstransport.net" class="text-red hover:underline">cs@caringhandstransport.net</a>
+              <a href="mailto:jobs@caringhandstransport.net" class="text-red hover:underline">jobs@caringhandstransport.net</a>
               or fax to 720-485-3752.
             </li>
             <li>
@@ -402,8 +402,8 @@
   <footer class="surface-elevated">
     <div class="section grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div>
-        <a href="/" class="flex items-center gap-3">
-          <img src="/src/assets/logo/favicon-180.png" alt="Caring Hands Transport" class="h-9 w-9" />
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="/src/assets/logo/logo-white.svg" alt="Caring Hands Transport" class="h-9 w-9" />
           <span class="font-heading text-base font-bold">Caring Hands Transport</span>
         </a>
         <p class="mt-4 text-sm text-ink/60 dark:text-paper/60">
@@ -414,20 +414,20 @@
       <div>
         <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">Company</h3>
         <ul class="mt-4 space-y-2 text-sm">
-          <li><a href="/about" class="text-ink/80 dark:text-paper/80 hover:text-red">About Us</a></li>
-          <li><a href="/services" class="text-ink/80 dark:text-paper/80 hover:text-red">Our Services</a></li>
-          <li><a href="/jobs" class="text-ink/80 dark:text-paper/80 hover:text-red">Jobs</a></li>
-          <li><a href="/employee-referral" class="text-ink/80 dark:text-paper/80 hover:text-red">Employee Referral Program</a></li>
-          <li><a href="/contact" class="text-ink/80 dark:text-paper/80 hover:text-red">Contact Us</a></li>
+          <li><a href="about.html" class="text-ink/80 dark:text-paper/80 hover:text-red">About Us</a></li>
+          <li><a href="services.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Our Services</a></li>
+          <li><a href="jobs.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Jobs</a></li>
+          <li><a href="employee-referral.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Employee Referral Program</a></li>
+          <li><a href="contact.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Contact Us</a></li>
         </ul>
       </div>
 
       <div>
         <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-ink/50 dark:text-paper/50">For Employees</h3>
         <ul class="mt-4 space-y-2 text-sm">
-          <li><a href="/employees-only" class="text-ink/80 dark:text-paper/80 hover:text-red">Employees Only</a></li>
-          <li><a href="/vehicle-maintenance" class="text-ink/80 dark:text-paper/80 hover:text-red">Vehicle Maintenance</a></li>
-          <li><a href="/staff-login" class="text-ink/80 dark:text-paper/80 hover:text-red">Staff/Admin Login</a></li>
+          <li><a href="employees-only.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Employees Only</a></li>
+          <li><a href="vehicle-maintenance.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Vehicle Maintenance</a></li>
+          <li><a href="staff-login.html" class="text-ink/80 dark:text-paper/80 hover:text-red">Staff/Admin Login</a></li>
         </ul>
       </div>
 
@@ -452,7 +452,7 @@
 
     <div class="border-t border-ink/10 dark:border-paper/10">
       <div class="mx-auto max-w-6xl px-6 py-6 text-center text-xs text-ink/50 dark:text-paper/50">
-        All Rights Reserved. Caring Hands Transport <span class="copyright-year"></span>.
+        All Rights Reserved. Caring Hands Transport 2024.
       </div>
     </div>
   </footer>

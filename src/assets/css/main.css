@@ -24,11 +24,6 @@
     scroll-behavior: smooth;
   }
 
-  body {
-    font-family: var(--font-body);
-    background-color: var(--color-paper);
-    color: var(--color-ink);
-  }
 
   html, body {
     overflow-x: hidden;
@@ -38,8 +33,10 @@
     display: none;
   }
 
-  textarea {
-    resize: none;
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
   }
 
   .dark body {
@@ -126,6 +123,21 @@
     @apply min-h-[8rem] resize-y;
   }
 
+  /* Empty required fields get a visible red border, not just a caption
+     underneath, so they actually stand out when a form is submitted. */
+  .field-input[aria-invalid="true"],
+  .field-select[aria-invalid="true"],
+  .field-textarea[aria-invalid="true"] {
+    @apply border-red;
+  }
+
+  /* Radio/checkbox groups don't have a single input to put aria-invalid on —
+     forms.js puts it on the fieldset instead, so the whole group's border
+     lights up red the same way a text field would. */
+  fieldset[aria-invalid="true"] {
+    @apply rounded-lg border border-red;
+  }
+
   .field-error {
     @apply mt-1.5 text-xs font-medium text-red hidden;
   }
@@ -165,4 +177,4 @@
   .animate-cht-pulse {
     animation: none;
   }
-}
+} 

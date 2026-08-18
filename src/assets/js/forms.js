@@ -22,6 +22,12 @@ window.CHT = window.CHT || {};
       errorEl.classList.remove("hidden");
     }
     field.setAttribute("aria-invalid", "true");
+
+    // Radio/checkbox inputs don't carry .field-input, so the red-border
+    // CSS can't target them directly — mark the wrapping fieldset instead
+    // so the whole group's border highlights.
+    var fieldset = field.closest("fieldset");
+    if (fieldset) fieldset.setAttribute("aria-invalid", "true");
   }
 
   function clearFieldError(field) {
@@ -32,6 +38,9 @@ window.CHT = window.CHT || {};
       errorEl.classList.add("hidden");
     }
     field.removeAttribute("aria-invalid");
+
+    var fieldset = field.closest("fieldset");
+    if (fieldset) fieldset.removeAttribute("aria-invalid");
   }
 
   // Validates: [required] fields, data-confirm-of="fieldName" matches,
