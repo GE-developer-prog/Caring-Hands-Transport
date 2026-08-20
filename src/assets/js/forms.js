@@ -136,6 +136,14 @@ window.CHT = window.CHT || {};
         }
       });
 
+      // Confirm-duplicate fields (confirmEmail, confirmNewPassword, etc.)
+      // are only ever used for the client-side match check above — the
+      // backend never needs to see the duplicate value, so strip every
+      // field marked data-confirm-of out of the payload before sending.
+      form.querySelectorAll("[data-confirm-of]").forEach(function (confirmField) {
+        delete data[confirmField.name];
+      });
+
       try {
         await apiFn(data);
         window.CHT.showToast(successMessage || "Submitted successfully.", "success");

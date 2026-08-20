@@ -1,46 +1,25 @@
 // auth.js
-// Staff/Admin authentication state only. Deliberately separate from any
-// public-facing client/session logic — the two are never mixed.
+// Session/auth state is now handled 100% by the backend via an
+// HttpOnly session cookie set on login — the frontend never reads,
+// stores, or manages a token itself. Since frontend and API share
+// the same origin, the browser sends that cookie automatically on
+// every request (as long as fetch calls use credentials: "include",
+// which api.js already does).
 //
-// The actual cookie-setting mechanism (HttpOnly, Secure flags, etc.)
-// should ultimately be defined by the backend's auth response. Until
-// the real API is wired in, this is a placeholder client-side cookie
-// with a 1 hour expiry, matching the spec.
+// There is nothing for this file to check proactively — the only
+// signal the frontend gets about auth state is a 401 response from
+// any protected route, handled centrally in api.js's request().
+// This file exists as a small, named place to redirect from, so
+// that logic isn't duplicated across every page.
 
 window.CHT = window.CHT || {};
 
 (function () {
-  var COOKIE_NAME = "cht_staff_token";
-  var COOKIE_MAX_AGE_SECONDS = 60 * 60; // 1 hour
-
-  window.CHT.setStaffToken = function (token) {
-    document.cookie =
-      COOKIE_NAME + "=" + encodeURIComponent(token) +
-      "; path=/; max-age=" + COOKIE_MAX_AGE_SECONDS + "; SameSite=Strict";
-  };
-
-  window.CHT.getStaffToken = function () {
-    var match = document.cookie.match(new RegExp("(?:^|; )" + COOKIE_NAME + "=([^;]*)"));
-    return match ? decodeURIComponent(match[1]) : null;
-  };
-
-  window.CHT.clearStaffToken = function () {
-    document.cookie = COOKIE_NAME + "=; path=/; max-age=0";
-  };
-
-  window.CHT.isStaffAuthenticated = function () {
-    return !!window.CHT.getStaffToken();
-  };
-
-  // Call on any page under the Staff/Admin portal to bounce unauthenticated
-  // visitors back to the login page.
-  window.CHT.requireStaffAuth = function () {
-    if (!window.CHT.isStaffAuthenticated()) {
-      if (window.phpspa && typeof window.phpspa.navigate === "function") {
-        window.phpspa.navigate("/staff-login");
-      } else {
-        location.href = "/staff-login";
-      }
+  window.CHT.redirectToStaffLogin = function () {
+    if (window.phpspa && typeof window.phpspa.navigate === "function") {
+      window.phpspa.navigate("/staff-login");
+    } else {
+      location.href = "/staff-login";
     }
   };
 })();

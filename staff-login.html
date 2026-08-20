@@ -127,7 +127,7 @@
     <div class="section grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div>
         <a href="/" class="flex items-center gap-3">
-          <img src="/src/assets/logo/favicon-180.png" alt="Caring Hands Transport" class="h-9 w-9" />
+          <img src="/src/assets/logo/logo-transparent.svg" alt="Caring Hands Transport" class="h-9 w-9" />
           <span class="font-heading text-base font-bold">Caring Hands Transport</span>
         </a>
         <p class="mt-4 text-sm text-ink/60 dark:text-paper/60">
@@ -176,7 +176,7 @@
 
     <div class="border-t border-ink/10 dark:border-paper/10">
       <div class="mx-auto max-w-6xl px-6 py-6 text-center text-xs text-ink/50 dark:text-paper/50">
-        All Rights Reserved. Caring Hands Transport <span class="copyright-year"></span>.
+        All Rights Reserved. Caring Hands Transport 2024.
       </div>
     </div>
   </footer>
@@ -191,7 +191,7 @@
   <script type="module" src="/src/assets/js/animations.js"></script>
   <script type="module" src="/src/assets/js/forms.js"></script>
   <!-- <script type="module" src="/src/assets/js/auth.js"></script> -->
-  <!-- <script type="module">
+  <script type="module">
     document.addEventListener("DOMContentLoaded", function () {
       var form = document.getElementById("staff-login-form");
       if (!form) return;
@@ -205,14 +205,17 @@
         var password = form.password.value;
         try {
           var result = await window.CHT.staffLogin(username, password);
-          window.CHT.setStaffToken(result.token);
-          window.CHT.showToast("Signed in.", "success");
-          location.href = "/staff-portal";
+          if (result.status === 200 && result.success) {
+            window.CHT.showToast("Signed in.", "success");
+            location.href = "/staff-portal";
+          } else {
+            window.CHT.showToast(result.message || "Incorrect username or password.", "error");
+          }
         } catch (err) {
-          // api.js already shows an error toast
+          // network-failure toast already shown by staffLogin itself
         }
       });
     });
-  </script> -->
+  </script>
 </body>
 </html>

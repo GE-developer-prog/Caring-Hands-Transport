@@ -108,6 +108,7 @@
 <button type="button" data-portal-tab="incident-report" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" >Incident Report</button>
 <button type="button" data-portal-tab="time-off" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" >Time Off Request</button>
 <button type="button" data-portal-tab="account-settings" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" >Account Settings</button>
+<button type="button" data-portal-tab="notification-email" class="whitespace-nowrap rounded-md px-4 py-2 text-sm font-heading font-semibold border border-line-light dark:border-line-dark data-[active=true]:bg-red data-[active=true]:text-white data-[active=true]:border-red" >Notification Email</button>
       </div>
 
       <div id="portal-panels">
@@ -471,6 +472,27 @@
     <button type="submit" class="btn-primary w-full sm:w-auto">Save Changes</button>
   </form>
 </div>
+<div data-portal-panel="notification-email" class="hidden"><h2 class="mb-6 font-heading text-2xl font-bold">Notification Email</h2>
+  <div>
+    <p class="mb-6 text-sm text-ink/70 dark:text-paper/70">
+      Every form submitted on the site &mdash; Feedback, Transportation Order, Employment
+      Application, and all internal staff forms &mdash; is sent to every email address saved
+      here. Any Staff/Admin can add, edit, or remove addresses from this list.
+    </p>
+
+    <div id="notification-emails-list" class="mb-6 space-y-2" aria-live="polite">
+      <p class="text-sm text-ink/50 dark:text-paper/50">Loading&hellip;</p>
+    </div>
+
+    <form id="add-notification-email-form" data-staff-form novalidate>
+      <div class="field-fieldset">
+        <p class="field-legend">Add Email</p>
+        <div class="field-group"><label class="field-label" for="new-notification-email">Email Address <span class="required-mark">*</span></label><input class="field-input" type="email" id="new-notification-email" name="email" required    /><p class="field-error"></p></div>
+      </div>
+      <button type="submit" class="btn-primary w-full sm:w-auto">Add Email</button>
+    </form>
+  </div>
+</div>
       </div>
     </section>
   </main>
@@ -479,7 +501,7 @@
     <div class="section grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div>
         <a href="/" class="flex items-center gap-3">
-          <img src="/src/assets/logo/favicon-180.png" alt="Caring Hands Transport" class="h-9 w-9" />
+          <img src="/src/assets/logo/logo-white.svg" alt="Caring Hands Transport" class="h-9 w-9" />
           <span class="font-heading text-base font-bold">Caring Hands Transport</span>
         </a>
         <p class="mt-4 text-sm text-ink/60 dark:text-paper/60">
@@ -528,7 +550,7 @@
 
     <div class="border-t border-ink/10 dark:border-paper/10">
       <div class="mx-auto max-w-6xl px-6 py-6 text-center text-xs text-ink/50 dark:text-paper/50">
-        All Rights Reserved. Caring Hands Transport <span class="copyright-year"></span>.
+        All Rights Reserved. Caring Hands Transport 2024.
       </div>
     </div>
   </footer>
@@ -544,7 +566,6 @@
   <!-- <script type="module" src="/src/assets/js/auth.js"></script> -->
   <script type="module" src="/src/assets/js/forms.js"></script>
   <script type="module" src="/src/assets/js/signature.js"></script>
-  <!-- <script type="module">window.CHT.requireStaffAuth();</script> -->
   <script type="module">
     document.addEventListener("DOMContentLoaded", function () {
       if (document.getElementById("delay-report-form")) window.CHT.bindFormSubmit(document.getElementById("delay-report-form"), window.CHT.submitDelayReport, "Delay report submitted!");
@@ -553,6 +574,7 @@ if (document.getElementById("hazard-report-form")) window.CHT.bindFormSubmit(doc
 if (document.getElementById("incident-report-form")) window.CHT.bindFormSubmit(document.getElementById("incident-report-form"), window.CHT.submitIncidentReport, "Incident report submitted!");
 if (document.getElementById("time-off-form")) window.CHT.bindFormSubmit(document.getElementById("time-off-form"), window.CHT.submitTimeOffRequest, "Time off request submitted!");
 if (document.getElementById("account-settings-form")) window.CHT.bindFormSubmit(document.getElementById("account-settings-form"), window.CHT.updateStaffCredentials, "Your credentials have been updated!");
+if (document.getElementById("notification-email-form")) window.CHT.bindFormSubmit(document.getElementById("notification-email-form"), window.CHT.updateNotificationEmail, "Notification email updated!");
 
       var buttons = document.querySelectorAll("[data-portal-tab]");
       buttons.forEach(function (btn) {
@@ -565,10 +587,104 @@ if (document.getElementById("account-settings-form")) window.CHT.bindFormSubmit(
         });
       });
 
+      // ---- Notification email list: render, add, edit, delete ----
+      var emailListEl = document.getElementById("notification-emails-list");
+      var addEmailForm = document.getElementById("add-notification-email-form");
+
+      function renderEmailList(emails) {
+        if (!emailListEl) return;
+        emailListEl.innerHTML = "";
+
+        if (!emails || emails.length === 0) {
+          emailListEl.innerHTML = '<p class="text-sm text-ink/50 dark:text-paper/50">No notification emails saved yet.</p>';
+          return;
+        }
+
+        emails.forEach(function (entry) {
+          var row = document.createElement("div");
+          row.className = "flex items-center gap-2 rounded-md border border-line-light px-4 py-2.5 dark:border-line-dark";
+
+          var emailText = document.createElement("span");
+          emailText.className = "flex-1 text-sm";
+          emailText.textContent = entry.email;
+
+          var editInput = document.createElement("input");
+          editInput.type = "email";
+          editInput.value = entry.email;
+          editInput.className = "field-input hidden flex-1";
+
+          var editBtn = document.createElement("button");
+          editBtn.type = "button";
+          editBtn.className = "font-heading text-xs font-semibold text-red";
+          editBtn.textContent = "Edit";
+
+          var deleteBtn = document.createElement("button");
+          deleteBtn.type = "button";
+          deleteBtn.className = "font-heading text-xs font-semibold text-red";
+          deleteBtn.textContent = "Delete";
+
+          editBtn.addEventListener("click", function () {
+            var isEditing = !editInput.classList.contains("hidden");
+            if (!isEditing) {
+              emailText.classList.add("hidden");
+              editInput.classList.remove("hidden");
+              editBtn.textContent = "Save";
+            } else {
+              window.CHT.updateNotificationEmail(entry.id, editInput.value).then(function () {
+                window.CHT.showToast("Email updated.", "success");
+                loadEmailList();
+              }).catch(function () { /* error toast already shown */ });
+            }
+          });
+
+          deleteBtn.addEventListener("click", function () {
+            window.CHT.deleteNotificationEmail(entry.id).then(function () {
+              window.CHT.showToast("Email removed.", "success");
+              loadEmailList();
+            }).catch(function () { /* error toast already shown */ });
+          });
+
+          row.appendChild(emailText);
+          row.appendChild(editInput);
+          row.appendChild(editBtn);
+          row.appendChild(deleteBtn);
+          emailListEl.appendChild(row);
+        });
+      }
+
+      function loadEmailList() {
+        if (!emailListEl) return;
+        window.CHT.getNotificationEmails().then(function (data) {
+          renderEmailList(data && data.emails ? data.emails : []);
+        }).catch(function () {
+          emailListEl.innerHTML = '<p class="text-sm text-red">Could not load notification emails.</p>';
+        });
+      }
+
+      if (emailListEl) loadEmailList();
+
+      if (addEmailForm) {
+        addEmailForm.addEventListener("submit", function (evt) {
+          evt.preventDefault();
+          if (!window.CHT.validateForm(addEmailForm)) {
+            window.CHT.showToast("Please enter a valid email.", "error");
+            return;
+          }
+          var emailValue = addEmailForm.email.value;
+          window.CHT.addNotificationEmail(emailValue).then(function () {
+            window.CHT.showToast("Email added.", "success");
+            addEmailForm.reset();
+            loadEmailList();
+          }).catch(function () { /* error toast already shown */ });
+        });
+      }
+
       var logoutBtn = document.getElementById("staff-logout");
       if (logoutBtn) {
         logoutBtn.addEventListener("click", function () {
-          window.CHT.clearStaffToken();
+          // NOTE: there is currently no logout endpoint documented —
+          // this only navigates back to login, it does not end the
+          // backend session. Flag this to the backend developer.
           location.href = "/staff-login";
         });
       }
